@@ -26,6 +26,28 @@ def fetch_ticker_data(ticker, start_date, end_date):
         print(f"Error fetching data for {ticker} from {start_date} to {end_date}: {e}")
         return []
 
+def fetch_company_info(ticker):
+    """
+    Fetch company name, market cap, and address from Yahoo Finance.
+    Returns a dictionary with company details.
+    """
+    stock = yf.Ticker(ticker)
+    try:
+        info = stock.info
+        company_name = info.get("shortName", ticker)
+        market_cap = info.get("marketCap", "N/A")
+        address = {
+            "Street": info.get("address1", "N/A"),
+            "City": info.get("city", "N/A"),
+            "State": info.get("state", "N/A"),
+            "Zip": info.get("zip", "N/A"),
+            "Country": info.get("country", "N/A")
+        }
+        return company_name, market_cap, address
+    except Exception as e:
+        print(f"Error retrieving info for {ticker}: {e}")
+        return ticker, "N/A", {}
+
 def main():
     all_tickers = usCompanies + foreignCompanies
 
@@ -34,22 +56,20 @@ def main():
 
     for ticker in all_tickers:
         print(f"\nProcessing ticker: {ticker}")
-        stock = yf.Ticker(ticker)
-        try:
-            company_name = stock.info.get("shortName", ticker)  # Fallback to ticker if name is unavailable
-            market_cap = stock.info.get("marketCap", "N/A")  # Fetch market cap, fallback to "N/A"
-        except Exception as e:
-            print(f"Error retrieving info for {ticker}: {e}")
-            company_name = ticker
-            market_cap = "N/A"
+        company_name, market_cap, address = fetch_company_info(ticker)
 
         for president, (start_date, end_date) in presidential_terms.items():
             print(f"Fetching data for {company_name} ({ticker}) during {president}'s term ({start_date} to {end_date})")
             historical_data = fetch_ticker_data(ticker, start_date, end_date)
+
             if historical_data:
                 if company_name not in data_by_president[president]:
-                    data_by_president[president][company_name] = {"Market Cap": market_cap}
+                    data_by_president[president][company_name] = {
+                        "Market Cap": market_cap,
+                        "Address": address
+                    }
                 data_by_president[president][company_name][f"{start_date}_{end_date}"] = historical_data
+            
             time.sleep(1)  # Sleep to avoid rate limiting
 
     # Save data to JSON files
