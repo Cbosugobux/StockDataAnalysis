@@ -7,6 +7,8 @@ Visual Studio
 
 Libraries include:  
 Pandas  
+Matplotlib
+Numpy
 YFinance  
 Flask  
 Dash
@@ -19,3 +21,5 @@ Dash
 **References for the data source(s)**  
 
 References for any code used that is not your own
+
+https://informationisbeautiful.net/visualizations/diversity-in-tech/
