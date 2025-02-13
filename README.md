@@ -6,12 +6,7 @@ MongoDB
 Visual Studio  
 
 Libraries include:  
-Pandas  
-Matplotlib
-Numpy
-YFinance  
-Flask  
-Dash
+Pandas, Matplotlib, Numpy, YFinance, Flask, Dash
 
 
 **Instructions on how to use and interact with the project**  
