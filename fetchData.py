@@ -1,8 +1,11 @@
 import pandas as pd
 from pymongo import MongoClient
 
-# Connect to MongoDB
-mongo = MongoClient(port=27017)
+# Define MongoDB Atlas connection
+MONGO_URI = "mongodb+srv://chrisbushelman:i7wPfB8sRMNlsCQT@cluster0.0gkw8.mongodb.net/"
+
+# Connect to MongoDB Atlas
+mongo = MongoClient(MONGO_URI)
 db = mongo['Project_3']  # Use your actual database name
 
 # Load data from MongoDB
@@ -38,9 +41,9 @@ def load_data(collection_name):
     
     return pd.DataFrame(all_data)
 
-# Extract data from both Trump and Biden collections
-df_trump = load_data("Trump")
-df_biden = load_data("Biden")
+# Extract data from both Trump_Presidency and Biden_Presidency collections
+df_trump = load_data("Trump_Presidency")
+df_biden = load_data("Biden_Presidency")
 
 # Print DataFrames
 print("Trump DataFrame:")

@@ -2,6 +2,12 @@ import yfinance as yf
 import json
 import time
 import random
+from pymongo import MongoClient
+
+# Define MongoDB Atlas connection
+MONGO_URI = "mongodb+srv://chrisbushelman:i7wPfB8sRMNlsCQT@cluster0.0gkw8.mongodb.net/"
+mongo = MongoClient(MONGO_URI)
+db = mongo['Project_3']  # Use your actual database name
 
 # Define the companies
 usCompanies = ["AAPL", "NVDA", "MSFT", "AMZN", "GOOG", "META", "TSLA", "AVGO", "ORCL", "CRM"]
@@ -51,6 +57,12 @@ def fetch_company_info(ticker):
             "Country": "Unknown"
         }
 
+def push_to_mongo(data, collection_name):
+    collection = db[collection_name]
+    collection.delete_many({})  # Clear previous data before inserting new data
+    collection.insert_one(data)
+    print(f"Data successfully inserted into {collection_name}")
+
 def main():
     all_tickers = usCompanies + foreignCompanies
     data_by_president = {"Trump": {}, "Biden": {}}  # Store data in dictionary format
@@ -72,12 +84,12 @@ def main():
             
             time.sleep(random.randint(3,5))  # Sleep to avoid rate limiting
 
-    # Store all tickers inside a single document (like Biden)
-    for president, data in data_by_president.items():
-        filename = f"{president}.json"
-        with open(filename, "w") as f:
-            json.dump([data], f, indent=4)  # Store as a list with one big dictionary
-        print(f"Data saved to {filename}")
+    # Store all tickers inside a single document per presidency and push to MongoDB Atlas
+    push_to_mongo(data_by_president["Trump"], "Trump_Presidency")
+    push_to_mongo(data_by_president["Biden"], "Biden_Presidency")
+    
+    print("Data saved to MongoDB Atlas")
 
 if __name__ == "__main__":
     main()
+
