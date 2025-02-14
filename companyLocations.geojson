@@ -5,7 +5,8 @@
         "type": "Feature",
         "properties": {
           "Company": "Apple",
-          "Ticker": "AAPL"
+          "Ticker": "AAPL",
+          "Change": "TBD"
         },
         "geometry": {
           "coordinates": [
@@ -20,7 +21,8 @@
         "type": "Feature",
         "properties": {
           "Company": "Nvidia",
-          "Ticker": "NVDA"
+          "Ticker": "NVDA",
+          "Change": "TBD"
         },
         "geometry": {
           "coordinates": [
@@ -35,7 +37,8 @@
         "type": "Feature",
         "properties": {
           "Company": "Microsoft",
-          "Ticker": "MSFT"
+          "Ticker": "MSFT",
+          "Change": "TBD"
         },
         "geometry": {
           "coordinates": [
@@ -50,7 +53,8 @@
         "type": "Feature",
         "properties": {
           "Company": "Amazon",
-          "Ticker": "AMZN"
+          "Ticker": "AMZN",
+          "Change": "TBD"
         },
         "geometry": {
           "coordinates": [
@@ -65,7 +69,8 @@
         "type": "Feature",
         "properties": {
           "Company": "Google",
-          "Ticker": "GOOG"
+          "Ticker": "GOOG",
+          "Change": "TBD"
         },
         "geometry": {
           "coordinates": [
@@ -92,7 +97,8 @@
         "type": "Feature",
         "properties": {
           "Company": "Samsung",
-          "Ticker": "SSNLF"
+          "Ticker": "SSNLF",
+          "Change": "TBD"
         },
         "geometry": {
           "coordinates": [
@@ -107,7 +113,8 @@
         "type": "Feature",
         "properties": {
           "Company": "ASML Holdings",
-          "Ticker": "ASML"
+          "Ticker": "ASML",
+          "Change": "TBD"
         },
         "geometry": {
           "coordinates": [
@@ -122,7 +129,8 @@
         "type": "Feature",
         "properties": {
           "Company": "Alibaba",
-          "Ticker": "BABA"
+          "Ticker": "BABA",
+          "Change": "TBD"
         },
         "geometry": {
           "coordinates": [
@@ -137,7 +145,8 @@
         "type": "Feature",
         "properties": {
           "Company": "Tencent Holdings",
-          "Ticker": "TCEHY"
+          "Ticker": "TCEHY",
+          "Change": "TBD"
         },
         "geometry": {
           "coordinates": [

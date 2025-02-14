@@ -18,29 +18,11 @@ d3.json('companyLocations.geojson').then(
 
         L.geoJson(data,
             {
-                // use the style attribute to go and add some different styling to the outline
-                /*style: {
-                    color: "black",
-                    fillColor: "pink",
-                    fillOpacity: 0.6,
-                    weight: 2
-                }*/
-                //style: function(feature)
-                //{
-                    //return {
-                        //Text:{Name}
-                        //color: "black",
-                        //fillColor: "blue",
-                        //fillOpacity: 0.6,
-                        //weight: 2
-                    //}
-                //},
-                // onEachFeature property, can be used to tell what happens when we interact
-                // with the drawn out portions of the map (the boroughs and neighborhoods) 
+               // create the function to create popup 
                onEachFeature: function(feature, layer){
                 // Giving each feature a popup with information that's relevant to it
-                layer.bindPopup("<center><h2>" + feature.properties.Company + "<br>" + feature.properties.Ticker + "</h2> <hr> <h3>");
-                //set mouse events to change map styling when neighobrhoods are hovered
+                layer.bindPopup("<center><h2>" + feature.properties.Company + "<br>" + feature.properties.Ticker + "<br>" + feature.properties.Change + "</h2> <hr> <h3>");
+                //set mouse events to change map styling when company location points are clicked
                  layer.on({
                                      mouseover: function(event)
                     {
