@@ -1,1 +1,153 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"coordinates":[-122.00898647003626,37.334428752774286],"type":"Point"}},{"type":"Feature","properties":{},"geometry":{"coordinates":[-121.96281336372374,37.37087253087056],"type":"Point"}},{"type":"Feature","properties":{},"geometry":{"coordinates":[-122.12794999999964,47.640699216404215],"type":"Point"}},{"type":"Feature","properties":{},"geometry":{"coordinates":[-122.3224061865082,47.60502825341166],"type":"Point"}},{"type":"Feature","properties":{},"geometry":{"coordinates":[-122.08549516931217,37.422460260295466],"type":"Point"}},{"type":"Feature","properties":{},"geometry":{"coordinates":[120.9679172513732,24.805959775768315],"type":"Point"}},{"type":"Feature","properties":{},"geometry":{"coordinates":[127.05286998280451,37.25337122521604],"type":"Point"}},{"type":"Feature","properties":{},"geometry":{"coordinates":[5.417039000001637,51.404563739044704],"type":"Point"}},{"type":"Feature","properties":{},"geometry":{"coordinates":[113.92925805550385,22.534384163842958],"type":"Point"}},{"type":"Feature","properties":{},"geometry":{"coordinates":[120.17429080271631,30.273913462489773],"type":"Point"}}]}
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "Company": "Apple",
+          "Ticker": "AAPL"
+        },
+        "geometry": {
+          "coordinates": [
+            -122.00898647003626,
+            37.334428752774286
+          ],
+          "type": "Point"
+        },
+        "id": 0
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Company": "Nvidia",
+          "Ticker": "NVDA"
+        },
+        "geometry": {
+          "coordinates": [
+            -121.96281336372374,
+            37.37087253087056
+          ],
+          "type": "Point"
+        },
+        "id": 1
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Company": "Microsoft",
+          "Ticker": "MSFT"
+        },
+        "geometry": {
+          "coordinates": [
+            -122.12794999999964,
+            47.640699216404215
+          ],
+          "type": "Point"
+        },
+        "id": 2
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Company": "Amazon",
+          "Ticker": "AMZN"
+        },
+        "geometry": {
+          "coordinates": [
+            -122.3224061865082,
+            47.60502825341166
+          ],
+          "type": "Point"
+        },
+        "id": 3
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Company": "Google",
+          "Ticker": "GOOG"
+        },
+        "geometry": {
+          "coordinates": [
+            -122.08549516931217,
+            37.422460260295466
+          ],
+          "type": "Point"
+        },
+        "id": 4
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            120.9679172513732,
+            24.805959775768315
+          ],
+          "type": "Point"
+        },
+        "id": 5
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Company": "Samsung",
+          "Ticker": "SSNLF"
+        },
+        "geometry": {
+          "coordinates": [
+            127.05286998280451,
+            37.25337122521604
+          ],
+          "type": "Point"
+        },
+        "id": 6
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Company": "ASML Holdings",
+          "Ticker": "ASML"
+        },
+        "geometry": {
+          "coordinates": [
+            5.417039000001637,
+            51.404563739044704
+          ],
+          "type": "Point"
+        },
+        "id": 7
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Company": "Alibaba",
+          "Ticker": "BABA"
+        },
+        "geometry": {
+          "coordinates": [
+            113.92925805550385,
+            22.534384163842958
+          ],
+          "type": "Point"
+        },
+        "id": 8
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "Company": "Tencent Holdings",
+          "Ticker": "TCEHY"
+        },
+        "geometry": {
+          "coordinates": [
+            120.17429080271631,
+            30.273913462489773
+          ],
+          "type": "Point"
+        },
+        "id": 9
+      }
+      
+    ]
+  }
