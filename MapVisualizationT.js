@@ -1,5 +1,5 @@
 // Creating the map object
-let myMapT = L.map("mapT", {
+let myMap = L.map("mapT", {
     center: [ 25.417039000001637, 10.404563739044704],
     zoom: 1.5
 
@@ -8,10 +8,10 @@ let myMapT = L.map("mapT", {
 // Adding the tile layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(myMapT);
+}).addTo(myMap);
 
 //create variable for the company locations
-let stockchangelayer = new L.layerGroup();
+let stockchangelayerT = new L.layerGroup();
 
 // use D3 to load the data from the nyc.geojson file
 d3.json('companyLocations.geojson').then(
@@ -77,6 +77,6 @@ d3.json('companyLocations.geojson').then(
             }
 
             
-        ).addTo(myMapT);
+        ).addTo(myMap);
     }
 );
