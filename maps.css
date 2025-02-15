@@ -1,0 +1,22 @@
+/* Maps define size for html main*/
+#mapT {
+    width: 900px;
+    height: 250px;
+    background-color: #CCC;
+   }
+#mapB {
+    width: 900px;
+    height: 250px;
+    background-color: #CCC;
+   }
+
+   h1{
+    font-size: 25px;
+}
+
+body {
+    padding: 10;
+    margin: 10;
+  }
+  
+ 

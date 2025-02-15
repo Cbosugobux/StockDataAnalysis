@@ -1,14 +1,14 @@
 // Creating the map object
-let myMap = L.map("map", {
-    center: [ 5.417039000001637, 51.404563739044704],
-    zoom: 2
+let myMapB = L.map("mapB", {
+    center: [ 25, 10],
+    zoom: 1.5
 
   });
 
 // Adding the tile layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(myMap);
+}).addTo(myMapB);
 
 //create variable for the company locations
 let stockchangelayer = new L.layerGroup();
@@ -71,21 +71,12 @@ d3.json('companyLocations.geojson').then(
                         layer = event.target;
                         
                     }
-                     //mouseout: function(event)
-                    //{
-                        // reference the item (layer) that triggers the event
-                        //layer = event.target;
-                        // use setStyle to update the fillOpacity style property
-                        //layer.setStyle({
-                           // fillOpacity: 0.6,
-                            //weight: 2
-                        //});
-                    //}
+                     
                 });
                }
             }
 
             
-        ).addTo(myMap);
+        ).addTo(myMapB);
     }
 );

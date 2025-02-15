@@ -89,7 +89,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Taiwan Seminconductor Manufacturing Co": "Taiwan Semiconductor Manufacturing Co",
+        "Company": "Taiwan Semiconductor Manufacturing Co",
         "Ticker": "TSM",
         "TrumpChange": "8.81",
         "BidenChange": "-7.74"
