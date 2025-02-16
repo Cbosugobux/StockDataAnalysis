@@ -2,22 +2,35 @@
 #mapT {
     width: 900px;
     height: 250px;
-    background-color: #CCC;
+    background-color: #686666;
+    border: solid black;
+        border-radius: 10px;
+    padding: 25px;
+    
    }
 #mapB {
     width: 900px;
     height: 250px;
-    background-color: #CCC;
-   }
+    background-color: #868686;
+    border: solid black;
+        border-radius: 10px;
 
-   h1{
+    padding: 25px;
+    
+    }
+
+.h1{
     font-size: 25px;
     font-weight: 300;
 }
 
-body {
-    padding: 10;
-    margin: 10;
+.body {
+    padding: 100px;
+    margin: 100px;
   }
   
- 
+.text1 {
+    font-size: 24px;
+    color: tomato;
+    font-weight: bold;
+}

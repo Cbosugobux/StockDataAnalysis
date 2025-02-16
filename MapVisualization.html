@@ -11,16 +11,28 @@
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <link rel="stylesheet" type="text/css" href="maps.css"></script>
         <link rel="stylesheet" type="text/css" href="leafletStyle.css">
+
+        <!--Biden.json-->
+        <script>
+            d3.json('./Data/Biden.json')
+            .then(function(data) {
+                console.log(data);
+            })
+            .catch(function(error) { // Fixed function declaration
+                console.error('Error loading the JSON file:', error); // Fixed punctuation
+            });
+        </script>
+
     </head>
 
     <body>
 		<center>
 			<h1>Top 5 Stock Change by Company Location <br> Trumps 1st Year vs Biden's 1st year</h1>
 
-            <div class="text1">Biden 2021 - Click on the circles to see company and stock info</div>
+            <div class="text1">Biden 2021 </div>
             <div id="mapB" class = "map"></div><br>
          
-            <div class="text1">Trump 2017 - Click on the circles to see company and stock info</div>
+            <div class="text1">Trump 2017 </div>
             <div id="mapT" class = "map"></div><br><br>
             
             <script src ="MapVisualizationB.js" defer></script>             

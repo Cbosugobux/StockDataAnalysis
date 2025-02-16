@@ -6,6 +6,9 @@
       "properties": {
         "Company": "Apple",
         "Ticker": "AAPL",
+        "City": "Cupertino",
+        "State": "CA",
+        "Country": "USA",
         "TrumpChange": "1.20",
         "BidenChange":"4.16"
       },
@@ -23,6 +26,9 @@
       "properties": {
         "Company": "Nvidia",
         "Ticker": "NVDA",
+        "City":  "Santa Clara",
+        "State": "CA",
+        "Country": "USA",
         "TrumpChange": "2.22",
         "BidenChange":"1.62"
       },
@@ -40,6 +46,9 @@
       "properties": {
         "Company": "Microsoft",
         "Ticker": "MSFT",
+        "City": "Redmond",
+        "State":"CA",
+        "Country":"USA",
         "TrumpChange": "2.24",
         "BidenChange": "1.13"
       },
@@ -57,6 +66,9 @@
       "properties": {
         "Company": "Amazon",
         "Ticker": "AMZN",
+        "City": "Seattle",
+        "State": "WA",
+        "Country": "USA",
         "TrumpChange": "1.81",
         "BidenChange": "5.45"
       },
@@ -74,6 +86,9 @@
       "properties": {
         "Company": "Google",
         "Ticker": "GOOG",
+        "City": "Mountain View",
+        "State":"CA",
+        "Country":"USA",
         "TrumpChange": "1.20",
         "BidenChange": "5.14"
       },
@@ -91,6 +106,8 @@
       "properties": {
         "Company": "Taiwan Semiconductor Manufacturing Co",
         "Ticker": "TSM",
+        "City": "Hsinchu City",
+        "Country": "Taiwan",
         "TrumpChange": "8.81",
         "BidenChange": "-7.74"
         
@@ -109,6 +126,8 @@
       "properties": {
         "Company": "Samsung",
         "Ticker": "SSNLF",
+        "City": "Suwon",
+        "Country": "South Korea",
         "TrumpChange": "-9.12",
         "BidenChange": "-2.21"
       },
@@ -126,6 +145,8 @@
       "properties": {
         "Company": "ASML Holdings",
         "Ticker": "ASML",
+        "City": "Veldhoven",
+        "Country": "Netherlands",
         "TrumpChange": "4.94",
         "BidenChange": "2.46"
       },
@@ -143,6 +164,8 @@
       "properties": {
         "Company": "Alibaba",
         "Ticker": "BABA",
+        "City": "Hanghzhou",
+        "Country": "China",
         "TrumpChange": "7.37",
         "BidenChange": "-1.38"
       },
@@ -160,6 +183,8 @@
       "properties": {
         "Company": "Tencent Holdings",
         "Ticker": "TCEHY",
+        "City": "Shenzhen",
+        "Country": "China",
         "TrumpChange": "2.44",
         "BidenChange": "-2.66"
       },
