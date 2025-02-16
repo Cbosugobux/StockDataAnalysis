@@ -1,180 +1,157 @@
-.logo img {
-    width: 100px;
-    height: auto
-}
-
-/* Make the nav a flex container */
-nav {
+/* ------------------ Global Reset / Base ------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #1A237E;  /* Dark blue background */
+    color: #ffffff;             /* White text */
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  /* ------------------ Header & Nav ------------------ */
+  nav {
     display: flex;
-    justify-content: space-between;  /* Space between logo & links */
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #333;  /* Dark background */
-}
-
-/* Remove default list styling */
-.nav-links {
+    background-color: #333; /* Dark gray for nav bar */
+  }
+  
+  .logo img {
+    width: 100px;
+    height: auto;
+  }
+  
+  .nav-links {
     list-style: none;
-    display: flex; /* Makes items align horizontally */
-    padding: 0;
-    margin: 0;
-}
-
-/* Style nav links */
-.nav-links li {
-    margin: 0 15px; /* Space between links */
-}
-
-/* Style anchor tags */
-.nav-links a {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links li {
+    /* margin: 0 15px; -- optional if using gap above */
+  }
+  
+  .nav-links a {
     text-decoration: none;
-    color: white;
+    color: #ffffff;
     font-size: 18px;
     transition: color 0.3s;
-}
-
-/* Hover effect */
-.nav-links a:hover {
-    color: #ffcc00; /* Yellow highlight */
-}
-
-/* Style the logo */
-.logo img {
-    width: 100px; /* Adjust logo size */
-    height: auto;
-}
-
-/* Apply a darker blue background to the whole page */
-body {
-    background-color: #1A237E; /* Darker than royal blue */
-    color: white; /* Makes all text white by default */
-    font-family: "Times New Roman", Times, serif; /* Times New Roman */
-    margin: 0;
-    padding: 0;
-}
-
-/* Center the title and make it larger */
-.hero h1 {
-    text-align: center;
-    font-size: 36px; /* Increase h1 size */
-    font-weight: bold;
-    margin-bottom: 20px; /* Add space between title and images */
-}
-
-/* Center everything in the hero section */
-.hero {
+  }
+  
+  .nav-links a:hover {
+    color: #ffcc00; /* Yellow highlight on hover */
+  }
+  
+  /* ------------------ Hero Section ------------------ */
+  .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
     padding: 20px 0;
-}
-
-/* Align images side by side */
-.image-container {
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* ------------------ Images ------------------ */
+  .image-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
     width: 100%;
-}
-
-/* Ensure images are uniform */
-.image-container img {
+  }
+  
+  .image-container div {
+    text-align: center;
+  }
+  
+  .image-container img {
     width: 250px;
     height: 250px;
     object-fit: cover;
     border: 2px solid black;
-}
-
-.image-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Adds spacing between the two images */
-}
-
-.image-container div {
-    text-align: center; /* Centers text under images */
-}
-
-.image-container img {
     transition: transform 0.3s ease-in-out;
-}
-
-.image-container img:hover {
+  }
+  
+  .image-container img:hover {
     transform: scale(1.05);
-}
-#news {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-#news {
-    position: absolute;
-    right: 20px; /* Moves it to the right */
-    top: 100px; /* Adjusts vertical positioning */
-    width: 350px; /* Controls how wide the news box is */
+  }
+  
+  /* ------------------ News Box ------------------ */
+  #news {
+    position: absolute; /* or fixed if desired */
+    right: 20px;
+    top: 100px;
+    width: 350px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-}
-
-.news-article {
+  }
+  
+  .news-article {
     margin-bottom: 15px;
-}
-
-.news-article h3 {
+  }
+  
+  .news-article h3 {
     font-size: 16px;
-}
-
-.news-article a {
+  }
+  
+  .news-article a {
     color: #ffcc00;
     text-decoration: none;
-}
-
-.news-article a:hover {
+  }
+  
+  .news-article a:hover {
     text-decoration: underline;
-}
-
-h2 {
-    font-weight: bold; /* Makes text bold */
-    font-family: 'Arial Black', sans-serif; /* Uses a bolder font */
-}
-
-.stock-lists {
+  }
+  
+  /* ------------------ Headings & Lists ------------------ */
+  h2 {
+    font-weight: bold;
+    font-family: "Arial Black", sans-serif; /* Or keep Times if you prefer */
+    text-align: center;
+  }
+  
+  .stock-lists {
     display: flex;
     justify-content: center;
-    gap: 50px; /* Adjust spacing between the lists */
-}
-
-.list-container {
-    flex: 1; /* Ensures each list takes equal space */
-    min-width: 300px; /* Prevents lists from shrinking too much */
-}
-
-h2 {
-    text-align: center; /* Centers the heading above each list */
-}
-
-ol {
+    gap: 50px;
+    margin-top: 20px;
+  }
+  
+  .list-container {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  ol {
     padding: 0;
-    list-style-position: inside; /* Keeps the numbering inside */
-}
-
-#team-one {
-    text-align: left; /* Aligns everything inside to the left */
-    padding-left: 50px; /* Adjusts spacing from the left edge */
-    width: fit-content; /* Prevents the section from stretching */
-}
-
-#team-one h2 {
-    margin-bottom: 10px; /* Adds spacing between heading and list */
-}
-
-#team-one ol {
-    padding-left: 20px; /* Proper indentation for the list */
-    list-style-position: outside; /* Ensures numbers stay aligned */
-}
+    list-style-position: inside;
+  }
+  
+  /* ------------------ Team One Section ------------------ */
+  #team-one {
+    text-align: left;
+    padding-left: 50px;
+    width: fit-content;
+  }
+  
+  #team-one h2 {
+    margin-bottom: 10px;
+  }
+  
+  #team-one ol {
+    padding-left: 20px;
+    list-style-position: outside;
+  }
+  
