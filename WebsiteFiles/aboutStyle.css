@@ -1,0 +1,56 @@
+#Purpose {
+    text-align: left;
+    padding-left: 50px; /* Indent for readability */
+  }
+  
+  /* Make the overall page background blue and text white */
+  body {
+    background-color: #0000ff; /* or any blue shade you prefer */
+    color: #ffffff;            /* default text color is white */
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Keep the nav bar the same color as before (example: #444) */
+  header {
+    background-color: #444; /* or whatever your nav bar color was */
+    padding: 10px;
+  }
+  
+  /* Make sure nav links are also white */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #ffffff; /* white text for nav links */
+  }
+  
+  /* Force headings to be white */
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+  }
+  
+  /* Override any previous custom heading color */
+  .list-container h2 {
+    color: #ffffff !important;
+  }
+  
+  /* Adjust spacing between the two list columns */
+  .stock-lists {
+    display: flex;
+    gap: 50px; /* or whatever spacing you want */
+    margin-top: 20px; /* some top spacing */
+  }
+  
+  /* Give each list some padding or margin if desired */
+  .list-container {
+    flex: 1;
+    padding-left: 20px; /* left padding */
+  }
+  
