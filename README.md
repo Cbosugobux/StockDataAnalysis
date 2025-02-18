@@ -1,5 +1,6 @@
 **Overview**   
-This project aims to analyze stock market data to see how the top US and International tech stocks performed during the first 100 days of Trump's first term vs Biden's first 100 days in office.  
+This project aims to analyze stock market data to see how the top 5 US and International tech stocks performed in Trump and Biden's first year in office, 2017 and 2021, respectively.  
+
 This data was analyzed using:  
 Jupyter Notebook  
 MongoDB  
