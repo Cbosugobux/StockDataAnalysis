@@ -1,20 +1,24 @@
 **Overview**   
-This project aims to analyze stock market data to see how the top US and International tech stocks performed during the first 100 days of Trump's first term vs Biden's first 100 days in office.  
+This project aims to analyze stock market data to see how the top 5 US and International tech stocks performed in Trump and Biden's first year in office, 2017 and 2021, respectively.  
+
 This data was analyzed using:  
 Jupyter Notebook  
 MongoDB  
-Visual Studio  
+  
 
-Libraries include:  
+Libraries include: 
 Pandas, Matplotlib, Numpy, YFinance, Flask, Dash
 
 
-**Instructions on how to use and interact with the project**  
+**Instructions on how to use and interact with the project:**  
 
-**Ethical considerations made in the project**
+**Ethical considerations made in the project:**  
+For this project, we addressed the potential for bias by analyzing stock changes for two recent Presidents. One Republican, one Democrat. We also broadened our stock analysis to analyze tech companies in the US as well as abroad. We added another element of scope by considering diversity in tech to consider how it affects changes in the stock market.  
+We have provided our resources for the data here and confirm that it has not been altered. All analyses represent the data as it is. 
 
 **References for the data source(s)**  
+https://informationisbeautiful.net/visualizations/diversity-in-tech/
 
 References for any code used that is not your own
 
-https://informationisbeautiful.net/visualizations/diversity-in-tech/
+
