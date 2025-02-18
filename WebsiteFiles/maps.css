@@ -27,6 +27,9 @@
 .body {
     padding: 100px;
     margin: 100px;
+    background-color: #1A237E;  /* Dark blue background */
+    color: #ffffff;             /* White text */
+    font-family: "Times New Roman", Times, serif;
   }
   
 .text1 {
