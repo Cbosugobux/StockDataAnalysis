@@ -1,14 +1,20 @@
-from flask import Flask, render_template
-from dash_app import create_dash_app
+from flask import Flask, jsonify, render_template
+from flask_pymongo import PyMongo
+import pandas as pd
+import json
+
+
 
 app = Flask(__name__)
 
 # Attach Dash app to Flask
-dash_app = create_dash_app(app)
+# create_dash_app(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html")  # Make sure this file exists in the templates folder
+    return render_template("index.html")
 
+
+## app launcher
 if __name__ == "__main__":
     app.run(debug=True)
