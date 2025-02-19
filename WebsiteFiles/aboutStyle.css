@@ -32,6 +32,7 @@ header {
 nav {
   background-color: #0D1B53; /* Same dark blue */
   border-bottom: 3px solid #FFCC00; /* Yellow underline */
+  height: 120px;
   padding: 12px 20px; /* Same padding as homepage */
   display: flex;
   justify-content: space-between;
