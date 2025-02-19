@@ -124,17 +124,17 @@
     {
       "type": "Feature",
       "properties": {
-        "Company": "Samsung",
-        "Ticker": "SSNLF",
-        "City": "Suwon",
-        "Country": "South Korea",
-        "TrumpChange": "-9.12",
-        "BidenChange": "-2.21"
+        "Company": "SAP",
+        "Ticker": "SAP",
+        "City": "Walldorf",
+        "Country": "Germany",
+        "TrumpChange": "2.14",
+        "BidenChange": "1.39"
       },
       "geometry": {
         "coordinates": [
-          127.05286998280451,
-          37.25337122521604
+          8.6416365413194,
+          49.29343347862164
         ],
         "type": "Point"
       },
