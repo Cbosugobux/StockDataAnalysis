@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;700&display=swap');
+
 /* --------------------------------------------------
    1. Global Reset and Base Styles
 -------------------------------------------------- */
@@ -10,7 +12,7 @@
 body {
   background-color: #1A237E;  /* Dark blue background */
   color: #ffffff;             /* White text */
-  font-family: "Times New Roman", Times, serif;
+  font-family: "IBM Plex Sans", sans-serif;
   line-height: 1.6;
 }
 
@@ -21,13 +23,21 @@ body {
    Using Flexbox with justify-content: space-between 
    so the logo is on the left and nav links on the right.
 */
-nav {
-  display: flex;
-  justify-content: space-between; /* space between logo and links */
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #333;         /* Dark gray nav bar */
+
+header {
+  margin: 0;
+  padding: 0;
 }
+
+nav {
+  background-color: #0D1B53; /* Same dark blue */
+  border-bottom: 3px solid #FFCC00; /* Yellow underline */
+  padding: 12px 20px; /* Same padding as homepage */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 .logo img {
   width: 100px; /* Adjust as desired */
@@ -51,7 +61,7 @@ nav {
 }
 
 .nav-links li a:hover {
-  color: #ffcc00; /* Yellow highlight on hover */
+  color: #FFD700; /* Brighter Gold for strong contrast */
 }
 
 /* --------------------------------------------------
