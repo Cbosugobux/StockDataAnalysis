@@ -18,18 +18,30 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="static/Proj3Logo.png" alt="Project Logo">
+                <img src="../static/Proj3Logo.png" alt="Project Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="stockData.html">Stock Data</a></li>
-                <li><a href="MapVisualization.html">Stock Performance by Location</a></li>
-                <li><a href="diversityData/diversityData.html">Diversity Information</a></li>
-                <li><a href="findings.html" class="active">Findings</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../stockData.html">Stock Data</a></li>
+                <li><a href="../MapVisualization.html">Stock Performance by Location</a></li>
+                <li><a href="diversityData.html" class="active">Diversity Information</a></li>
+                <li><a href="../findings.html">Findings</a></li>
             </ul>
         </nav>  
     </header>
+
+    <script>
+        // ✅ Highlight Active Page in Navigation Bar
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentPage = window.location.pathname.split("/").pop();
+            document.querySelectorAll(".nav-links a").forEach(link => {
+                if (link.getAttribute("href").includes(currentPage)) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
 
     <main>
         <h1>Diversity Data Visualization</h1>
@@ -54,12 +66,6 @@
             <option value="race_black" selected>Black (%)</option>
             <option value="race_hispanic" selected>Hispanic (%)</option>
         </select>
-
-<!-- Chart Container -->
-<div class="chart-container">
-    <canvas id="diversityChart"></canvas>
-</div>
-
 
         <!-- Year Selection -->
         <label for="year-filter">Select Year:</label>
