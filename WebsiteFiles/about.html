@@ -21,9 +21,8 @@
             <li><a href="findings.html">Findings</a></li>
           </ul>
         </nav>
-      </header>
-      
     </header>
+
     <main class="about-container">
       <h1>Our Project</h1>
       <p>
@@ -41,31 +40,61 @@
         Additionally, diversity distribution within these companies during this period 
         was analyzed in the context of prevailing economic conditions.
       </p>
-      <div class="stock-lists">
-        <div class="list-container">
-          <h2>Domestic Stocks</h2>
-          <ol>
-            <li>Apple</li>
-            <li>Nvidia</li>
-            <li>Microsoft</li>
-            <li>Amazon</li>
-            <li>Google (Alphabet)</li>
-          </ol>
+
+      <section class="stock-section">
+        <h2>Stock Market Leaders</h2>
+        <div class="toggle-buttons">
+            <button id="domestic-btn" onclick="showStocks('domestic')">Domestic Stocks</button>
+            <button id="foreign-btn" onclick="showStocks('foreign')">Foreign Stocks</button>
         </div>
-        <div class="list-container">
-          <h2>Foreign Stocks</h2>
-          <ol>
-            <li>Samsung (South Korea)- To be removed</li>
-            <li>ASML (Netherlands)</li>
-            <li>Tencent Holdings (China)</li>
-            <li>Alibaba (China)</li>
-            <li>Sony (Japan)</li>
-          </ol>
+    
+        <div id="domestic-stocks" class="stock-container active">
+            <div class="stock-card domestic"><h3>Apple</h3><p>(AAPL)</p></div>
+            <div class="stock-card domestic"><h3>Nvidia</h3><p>(NVDA)</p></div>
+            <div class="stock-card domestic"><h3>Microsoft</h3><p>(MSFT)</p></div>
+            <div class="stock-card domestic"><h3>Amazon</h3><p>(AMZN)</p></div>
+            <div class="stock-card domestic"><h3>Google</h3><p>(GOOGL)</p></div>
         </div>
-      </div>
+    
+        <div id="foreign-stocks" class="stock-container">
+            <div class="stock-card foreign"><h3>ASML</h3><p>(ASML) – 🇳🇱 Netherlands</p></div>
+            <div class="stock-card foreign"><h3>Tencent</h3><p>(TCEHY) – 🇨🇳 China</p></div>
+            <div class="stock-card foreign"><h3>Alibaba</h3><p>(BABA) – 🇨🇳 China</p></div>
+            <div class="stock-card foreign"><h3>SAP</h3><p>(SAP) – 🇩🇪 Germany</p></div>
+            <div class="stock-card foreign"><h3>Taiwan Semiconductor</h3><p>(TSM) – 🇹🇼 Taiwan</p></div>
+        </div>
+    </section>    
+    
+
     </main>
+
     <footer>
       <p>&copy; 2025 Team One. All rights reserved.</p>
     </footer>
-  </body>
-</html>
+
+    <!-- JavaScript for Toggle -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          document.getElementById('domestic-stocks').classList.add('active');
+          document.getElementById('domestic-btn').classList.add('active');
+      
+          function showStocks(type) {
+              document.getElementById('domestic-stocks').classList.remove('active');
+              document.getElementById('foreign-stocks').classList.remove('active');
+              document.getElementById('domestic-btn').classList.remove('active');
+              document.getElementById('foreign-btn').classList.remove('active');
+      
+              document.getElementById(type + '-stocks').classList.add('active');
+              document.getElementById(type + '-btn').classList.add('active');
+          }
+      
+          document.getElementById('domestic-btn').addEventListener("click", function() {
+              showStocks('domestic');
+          });
+      
+          document.getElementById('foreign-btn').addEventListener("click", function() {
+              showStocks('foreign');
+          });
+      });
+      </script>
+      
