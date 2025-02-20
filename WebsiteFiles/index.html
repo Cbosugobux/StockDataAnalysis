@@ -1,105 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First-Year Stock Market Performance: Comparing Trump and Biden</title>
-    <link rel="stylesheet" href="cssFiles/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First-Year Stock Market Performance: Comparing Trump and Biden</title>
+  <link rel="stylesheet" href="cssFiles/styles.css">
+  <style>
+    /* Modal container - hidden by default */
+    .modal {
+      display: none; /* Hidden until triggered */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5); /* Black overlay with opacity */
+    }
+
+    /* Modal content box */
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+    }
+
+    /* Modal text styling */
+    .modal-content {
+      text-align: center;
+    }
+    .modal-content p,
+    .modal-content h2,
+    .modal-content strong,
+    .modal-content em {
+      color: blue;
+    }
+
+    /* Close button styling */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+  </style>
 </head>
-    
+
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="static/Proj3Logo.png" alt="Project Logo">
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="stockData.html">Stock Data</a></li>
-                <li><a href="MapVisualization.html">Stock Performance by Location</a></li>
-                <li><a href="diversityData/diversityData.html">Diversity Information</a></li>
-                <li><a href="findings.html">Findings</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="static/Proj3Logo.png" alt="Project Logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="stockData.html">Stock Data</a></li>
+        <li><a href="MapVisualization.html">Stock Performance by Location</a></li>
+        <li><a href="diversityData/diversityData.html">Diversity Information</a></li>
+        <li><a href="findings.html">Findings</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <script>
-        // ✅ Highlight Active Page in Navigation Bar
-        document.addEventListener("DOMContentLoaded", function () {
-            const currentPage = window.location.pathname.split("/").pop();
-            document.querySelectorAll(".nav-links a").forEach(link => {
-                if (link.getAttribute("href") === currentPage) {
-                    link.classList.add("active");
-                }
-            });
-        });
-    </script>
+  <!-- Modal Popup -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      
+      <!-- Modal Heading -->
+      <p>
+        <strong>Team 1: Project 3</strong><br>
+        <em>Stock Market Trends: Trump v. Biden</em>
+      </p>
+      <hr>
 
-    <!-- ✅ TradingView Widget -->
-    <div class="tradingview-container">
-        <div class="tradingview-widget-container">
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-            {
-              "symbols": [
-                { "proName": "NASDAQ:AAPL", "title": "Apple" },
-                { "proName": "NASDAQ:NVDA", "title": "Nvidia" },
-                { "proName": "NASDAQ:MSFT", "title": "Microsoft" },
-                { "proName": "NASDAQ:AMZN", "title": "Amazon" },
-                { "proName": "NASDAQ:GOOGL", "title": "Google" },
-                { "proName": "NASDAQ:META", "title": "Meta (Facebook)" },
-                { "proName": "NASDAQ:TSLA", "title": "Tesla" }
-              ],
-              "colorTheme": "dark",
-              "isTransparent": false,
-              "displayMode": "adaptive",
-              "locale": "en"
-            }
-            </script>
-        </div>
+      <!-- Stock Market Info -->
+      <h2>Biggest stock market crash</h2>
+      <p>
+        The 1987 stock market crash is known for being the largest single-day percentage decline in U.S. stock market history.
+      </p>
+
+      <h2>Apple</h2>
+      <p>
+        Apple co-founder Ronald Wayne sold his 10% stake in Apple just 12 days after the company was founded for $800. Today that would have been worth billions.
+      </p>
+
+      <h2>Amazon</h2>
+      <p>
+        Amazon was originally called "Cadabra," but Jeff Bezos changed it to Amazon, inspired by the largest river in the world, symbolizing its vast selection of products.
+      </p>
+
+      <p>
+        <strong>21% of Silicon Valley executives are women (2020)</strong>
+      </p>
+
+      <h2>Microsoft</h2>
+      <p>
+        Acquired LinkedIn in 2016 for $26.2 Billion and GitHub in 2018 for $7.5 Billion, expanding their influence in social networking and software development.
+      </p>
     </div>
+  </div>
 
-    <section id="home" class="hero">
-        <h1>First-Year Stock Market Performance: Comparing Trump and Biden</h1>
-        <div class="image-container">
-            <div>
-                <img src="static/TrumpOfficialPortrait.jpeg" alt="President_Trump"><br>
-                <h2>Donald J. Trump</h2>
-            </div>
-            <div>
-                <img src="static/BidenOfficialPortrait.png" alt="President_Biden">
-                <h2>Joseph R. Biden</h2>
-            </div>
-        </div>
-    </section>
-        
-    <section id="timeline">
-        <div class="timeline-container">
-            <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1PcivyI36CCdzKXg4ss-Td3ITt2yVbN2LDuNAZCRnk_Q&font=Default&lang=en&initial_zoom=2&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
-        </div>
-    </section>
+  <script>
+    // Highlight Active Page in Navigation Bar & show modal on load
+    document.addEventListener("DOMContentLoaded", function () {
+      // Active Nav Link
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
 
-    <section class="team-section">
-        <h1>Meet Our Team of Analysts</h1>
-        <div class="team-container">
-            <div class="team-card"><h2>Magdalene Alva</h2></div>
-            <div class="team-card"><h2>Sara Bendahmane</h2></div>
-            <div class="team-card"><h2>Chris Bushelman</h2></div>
-            <div class="team-card"><h2>Chorrkin Chin</h2></div>
-            <div class="team-card"><h2>Patrick Feeney</h2></div>
-            <div class="team-card"><h2>Kidest Getahun</h2></div>
-            <div class="team-card"><h2>Rob Jowaisas</h2></div>
-            <div class="team-card"><h2>Amy Millimen-Tola</h2></div>
-            <div class="team-card"><h2>Maya Morad</h2></div>
-            <div class="team-card"><h2>Alma Ontiveros</h2></div>
-            <div class="team-card"><h2>Matthew Shea</h2></div>
-            <div class="team-card"><h2>Xavier Walsh</h2></div>
-        </div>
-    </section>
+      // Modal Functionality
+      var modal = document.getElementById("myModal");
+      var closeBtn = document.getElementsByClassName("close")[0];
 
-    <footer>
-      <p>&copy; 2025 Team One. All rights reserved.</p>
-    </footer>
+      // Display the modal on page load
+      modal.style.display = "block";
 
+      // Close the modal when the close button is clicked
+      closeBtn.onclick = function() {
+        modal.style.display = "none";
+      };
+
+      // Close the modal when clicking outside of the modal content
+      window.onclick = function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+    });
+  </script>
+
+  <!-- TradingView Widget -->
+  <div class="tradingview-container">
+    <div class="tradingview-widget-container">
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+        "symbols": [
+          { "proName": "NASDAQ:AAPL", "title": "Apple" },
+          { "proName": "NASDAQ:NVDA", "title": "Nvidia" },
+          { "proName": "NASDAQ:MSFT", "title": "Microsoft" },
+          { "proName": "NASDAQ:AMZN", "title": "Amazon" },
+          { "proName": "NASDAQ:GOOGL", "title": "Google" },
+          { "proName": "NASDAQ:META", "title": "Meta (Facebook)" },
+          { "proName": "NASDAQ:TSLA", "title": "Tesla" }
+        ],
+        "colorTheme": "dark",
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "locale": "en"
+      }
+      </script>
+    </div>
+  </div>
+
+  <section id="home" class="hero">
+    <h1>First-Year Stock Market Performance: Comparing Trump and Biden</h1>
+    <div class="image-container">
+      <div>
+        <img src="static/TrumpOfficialPortrait.jpeg" alt="President_Trump"><br>
+        <h2>Donald J. Trump</h2>
+      </div>
+      <div>
+        <img src="static/BidenOfficialPortrait.png" alt="President_Biden">
+        <h2>Joseph R. Biden</h2>
+      </div>
+    </div>
+  </section>
+      
+  <section id="timeline">
+    <div class="timeline-container">
+      <iframe src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1PcivyI36CCdzKXg4ss-Td3ITt2yVbN2LDuNAZCRnk_Q&amp;font=Default&amp;lang=en&amp;initial_zoom=2&amp;height=650" width="100%" height="650" webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"></iframe>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <h1>Meet Our Team of Analysts</h1>
+    <div class="team-container">
+      <div class="team-card"><h2>Magdalene Alva</h2></div>
+      <div class="team-card"><h2>Sara Bendahmane</h2></div>
+      <div class="team-card"><h2>Chris Bushelman</h2></div>
+      <div class="team-card"><h2>Chorrkin Chin</h2></div>
+      <div class="team-card"><h2>Patrick Feeney</h2></div>
+      <div class="team-card"><h2>Kidest Getahun</h2></div>
+      <div class="team-card"><h2>Rob Jowaisas</h2></div>
+      <div class="team-card"><h2>Amy Millimen-Tola</h2></div>
+      <div class="team-card"><h2>Maya Morad</h2></div>
+      <div class="team-card"><h2>Alma Ontiveros</h2></div>
+      <div class="team-card"><h2>Matthew Shea</h2></div>
+      <div class="team-card"><h2>Xavier Walsh</h2></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Team One. All rights reserved.</p>
+  </footer>
 </body>
 </html>
