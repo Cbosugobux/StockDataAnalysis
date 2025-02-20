@@ -1,114 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Page - Stock Market Performance</title>
-    <link rel="stylesheet" href="cssFiles/styles.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="cssFiles/styles.css">
+</head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      // ✅ Set Initial Active Section to Domestic
+      document.getElementById('domestic-stocks').classList.add('active');
+      document.getElementById('domestic-btn').classList.add('active');
+
+      function showStocks(type) {
+          // ✅ Hide Both Sections
+          document.getElementById('domestic-stocks').classList.remove('active');
+          document.getElementById('foreign-stocks').classList.remove('active');
+          
+          // ✅ Remove Active Class from Both Buttons
+          document.getElementById('domestic-btn').classList.remove('active');
+          document.getElementById('foreign-btn').classList.remove('active');
+
+          // ✅ Show Selected Section & Highlight Button
+          document.getElementById(type + '-stocks').classList.add('active');
+          document.getElementById(type + '-btn').classList.add('active');
+      }
+
+      // ✅ Event Listeners for Buttons
+      document.getElementById('domestic-btn').addEventListener("click", function () {
+          showStocks('domestic');
+      });
+
+      document.getElementById('foreign-btn').addEventListener("click", function () {
+          showStocks('foreign');
+      });
+  });
+</script>
+
+<body>
     <header>
         <nav>
-          <div class="logo">
-            <img src="static/Proj3Logo.png" alt="Logo">
-          </div>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="stockData.html">Stock Data</a></li>
-            <li><a href="stockPerformanceByLocation.html">Stock Performance by Location</a></li>
-            <li><a href="diversityData/diversityData.html">Diversity Information</a></li>
-            <li><a href="findings.html">Findings</a></li>
-          </ul>
+            <div class="logo">
+                <img src="static/Proj3Logo.png" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="stockData.html">Stock Data</a></li>
+                <li><a href="stockPerformanceByLocation.html">Stock Performance by Location</a></li>
+                <li><a href="diversityData/diversityData.html">Diversity Information</a></li>
+                <li><a href="findings.html">Findings</a></li>
+            </ul>
         </nav>
     </header>
 
     <main class="about-container">
-      <h1>About Our Project</h1>
-      <p>
-        <strong>Purpose:</strong> This analysis examines the performance of the top five tech sector stocks 
-        during the first year of both President Trump’s and President Biden’s terms. Stock price trends 
-        (both domestic and foreign), geographic distribution, and diversity changes from 2017 to 2021 
-        are explored through visualizations created for this study.
-      </p>
-      <p>
-        <strong>Methods:</strong> The Python module <code>yfinance</code> was used to 
-        import stock market data for selected stocks, allowing for the creation of 
-        visualizations that highlight differences in market performance.
-      </p>
-      <p>
-        Additionally, diversity distribution within these companies during this period 
-        was analyzed in the context of prevailing economic conditions.
-      </p>
+        <h1>About Our Project</h1>
+        <p>
+            <strong>Purpose:</strong> This analysis examines the performance of the top five tech sector stocks 
+            during the first year of both President Trump’s and President Biden’s terms. Stock price trends 
+            (both domestic and foreign), geographic distribution, and diversity changes from 2017 to 2021 
+            are explored through visualizations created for this study.
+        </p>
 
-      <section class="stock-section">
-        <h2>Stock Market Leaders</h2>
-        <div class="toggle-buttons">
-            <button id="domestic-btn" onclick="showStocks('domestic')">Domestic Stocks</button>
-            <button id="foreign-btn" onclick="showStocks('foreign')">Foreign Stocks</button>
-        </div>
-    
-        <div id="domestic-stocks" class="stock-container active">
-            <div class="stock-card domestic"><h3>Apple</h3><p>(AAPL)</p></div>
-            <div class="stock-card domestic"><h3>Nvidia</h3><p>(NVDA)</p></div>
-            <div class="stock-card domestic"><h3>Microsoft</h3><p>(MSFT)</p></div>
-            <div class="stock-card domestic"><h3>Amazon</h3><p>(AMZN)</p></div>
-            <div class="stock-card domestic"><h3>Google</h3><p>(GOOGL)</p></div>
-        </div>
-    
-        <div id="foreign-stocks" class="stock-container">
-            <div class="stock-card foreign"><h3>ASML</h3><p>(ASML) – 🇳🇱 Netherlands</p></div>
-            <div class="stock-card foreign"><h3>Tencent</h3><p>(TCEHY) – 🇨🇳 China</p></div>
-            <div class="stock-card foreign"><h3>Alibaba</h3><p>(BABA) – 🇨🇳 China</p></div>
-            <div class="stock-card foreign"><h3>SAP</h3><p>(SAP) – 🇩🇪 Germany</p></div>
-            <div class="stock-card foreign"><h3>Taiwan Semiconductor</h3><p>(TSM) – 🇹🇼 Taiwan</p></div>
-        </div>
-    </section>    
-    
+        <!-- ✅ Stock Market Leaders Section (Kept as is) -->
+        <section class="stock-section">
+            <h2>Stock Market Leaders</h2>
+            <div class="toggle-buttons">
+                <button id="domestic-btn" onclick="showStocks('domestic')">Domestic Stocks</button>
+                <button id="foreign-btn" onclick="showStocks('foreign')">Foreign Stocks</button>
+            </div>
 
+            <div id="domestic-stocks" class="stock-container active">
+                <div class="stock-card domestic"><h3>Apple</h3><p>(AAPL)</p></div>
+                <div class="stock-card domestic"><h3>Nvidia</h3><p>(NVDA)</p></div>
+                <div class="stock-card domestic"><h3>Microsoft</h3><p>(MSFT)</p></div>
+                <div class="stock-card domestic"><h3>Amazon</h3><p>(AMZN)</p></div>
+                <div class="stock-card domestic"><h3>Google</h3><p>(GOOGL)</p></div>
+            </div>
+
+            <div id="foreign-stocks" class="stock-container">
+                <div class="stock-card foreign"><h3>ASML</h3><p>(ASML) – 🇳🇱 Netherlands</p></div>
+                <div class="stock-card foreign"><h3>Tencent</h3><p>(TCEHY) – 🇨🇳 China</p></div>
+                <div class="stock-card foreign"><h3>Alibaba</h3><p>(BABA) – 🇨🇳 China</p></div>
+                <div class="stock-card foreign"><h3>SAP</h3><p>(SAP) – 🇩🇪 Germany</p></div>
+                <div class="stock-card foreign"><h3>Taiwan Semiconductor</h3><p>(TSM) – 🇹🇼 Taiwan</p></div>
+            </div>
+        </section>    
+
+        <!-- ✅ NEW: Data Processing Flow Timeline -->
+        <section id="data-flow">
+            <h2>How We Collect & Process Data</h2>
+            <p>Our project follows a structured pipeline for data collection, cleaning, and visualization.</p>
+        
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon"></div>
+                    <div class="timeline-content">
+                        <h3>Step 1: Scraping Stock Market Data</h3>
+                        <p>Using Python and <code>yfinance</code>, we fetch stock price data for key U.S. and foreign companies.</p>
+                        <img src="static/screenshots/data-scraper.png" alt="Stock Market Data Scraper">
+                    </div>
+                </div>
+        
+                <div class="timeline-item">
+                    <div class="timeline-icon"></div>
+                    <div class="timeline-content">
+                        <h3>Step 2: Formatting Data into JSON</h3>
+                        <p>The collected stock data is structured into JSON format for easy processing.</p>
+                        <img src="static/screenshots/json-format.png" alt="JSON Data Formatting">
+                    </div>
+                </div>
+        
+                <div class="timeline-item">
+                    <div class="timeline-icon"></div>
+                    <div class="timeline-content">
+                        <h3>Step 3: Storing Data in MongoDB</h3>
+                        <p>We save the structured JSON into a cloud-based MongoDB Atlas database.</p>
+                        <img src="static/screenshots/mongodb.png" alt="MongoDB Database">
+                    </div>
+                </div>
+        
+                <div class="timeline-item">
+                    <div class="timeline-icon"></div>
+                    <div class="timeline-content">
+                        <h3>Step 4: Extracting & Analyzing Data</h3>
+                        <p>Using Jupyter Notebook, we analyze stock performance trends under each presidency.</p>
+                        <img src="static/screenshots/jupyter-analysis.png" alt="Jupyter Notebook Data Analysis">
+                    </div>
+                </div>
+        
+                <div class="timeline-item">
+                    <div class="timeline-icon"></div>
+                    <div class="timeline-content">
+                        <h3>Step 5: Visualizing Data with Matplotlib</h3>
+                        <p>Matplotlib is used to create stock performance graphs for different companies.</p>
+                        <img src="static/screenshots/matplotlib-chart.png" alt="Matplotlib Stock Chart">
+                    </div>
+                </div>
+        
+                <div class="timeline-item">
+                    <div class="timeline-icon"></div>
+                    <div class="timeline-content">
+                        <h3>Step 6: Displaying Data on the Website</h3>
+                        <p>We use Leaflet.js to create interactive maps that showcase stock performance changes globally.</p>
+                        <img src="static/screenshots/final-map.png" alt="Stock Performance Map">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+      
     </main>
 
     <footer>
-      <p>&copy; 2025 Team One. All rights reserved.</p>
+        <p>&copy; 2025 Team One. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Toggle -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          document.getElementById('domestic-stocks').classList.add('active');
-          document.getElementById('domestic-btn').classList.add('active');
-      
-          function showStocks(type) {
-              document.getElementById('domestic-stocks').classList.remove('active');
-              document.getElementById('foreign-stocks').classList.remove('active');
-              document.getElementById('domestic-btn').classList.remove('active');
-              document.getElementById('foreign-btn').classList.remove('active');
-      
-              document.getElementById(type + '-stocks').classList.add('active');
-              document.getElementById(type + '-btn').classList.add('active');
-          }
-      
-          document.getElementById('domestic-btn').addEventListener("click", function() {
-              showStocks('domestic');
-          });
-      
-          document.getElementById('foreign-btn').addEventListener("click", function() {
-              showStocks('foreign');
-          });
-      });
-      </script>
-
-    <!-- Active Page Highlight Script -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          const currentPage = window.location.pathname.split("/").pop();
-          const navLinks = document.querySelectorAll(".nav-links a");
-    
-          navLinks.forEach(link => {
-              if (link.getAttribute("href") === currentPage) {
-                  link.classList.add("active");
-              }
-          });
-      });
-  </script>
-      
+</body>
+</html>
