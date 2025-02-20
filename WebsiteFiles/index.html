@@ -24,7 +24,19 @@
         </nav>
     </header>
 
-    <!-- ✅ Move the TradingView Widget BELOW the header -->
+    <script>
+        // ✅ Highlight Active Page in Navigation Bar
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentPage = window.location.pathname.split("/").pop();
+            document.querySelectorAll(".nav-links a").forEach(link => {
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+
+    <!-- ✅ TradingView Widget -->
     <div class="tradingview-container">
         <div class="tradingview-widget-container">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
@@ -36,16 +48,7 @@
                 { "proName": "NASDAQ:AMZN", "title": "Amazon" },
                 { "proName": "NASDAQ:GOOGL", "title": "Google" },
                 { "proName": "NASDAQ:META", "title": "Meta (Facebook)" },
-                { "proName": "NASDAQ:TSLA", "title": "Tesla" },
-                { "proName": "NASDAQ:AVGO", "title": "Broadcom" },
-                { "proName": "NYSE:ORCL", "title": "Oracle" },
-                { "proName": "EURONEXT:ASML", "title": "ASML (Netherlands)" },
-                { "proName": "HKEX:0700", "title": "Tencent (China)" },
-                { "proName": "NYSE:BABA", "title": "Alibaba (China)" },
-                { "proName": "FWB:SAP", "title": "SAP (Germany)" },
-                { "proName": "NASDAQ:BIDU", "title": "Baidu (China)" },
-                { "proName": "NYSE:TSM", "title": "Taiwan Semiconductor" },
-                { "proName": "NYSE:INFY", "title": "Infosys (India)" }
+                { "proName": "NASDAQ:TSLA", "title": "Tesla" }
               ],
               "colorTheme": "dark",
               "isTransparent": false,
