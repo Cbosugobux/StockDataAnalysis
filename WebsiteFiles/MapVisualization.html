@@ -50,8 +50,8 @@
         <section class="findings-container">
             <h2>📊 Trump’s 1st Year (2017)</h2>
             <div id="mapT" class="map"></div>
-        </section> 
-        
+        </section>
+
         <section class="findings-container">
             <h2>📊 Biden’s 1st Year (2021)</h2>
             <div id="mapB" class="map"></div>
@@ -64,6 +64,23 @@
         <p>&copy; 2025 Team One. All rights reserved.</p>
     </footer>
 
-    <!-- ✅ JavaScript Files -->
-    <script src="MapVisualizationB.js" defer></script>             
-   
+    <!-- ✅ JavaScript Files (Corrected Paths) -->
+    <script src="mapVisualizations/MapVisualizationB.js" defer></script>             
+    <script src="mapVisualizations/MapVisualizationT.js" defer></script>
+
+    <!-- ✅ Active Page Highlight Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentPage = window.location.pathname.split("/").pop();
+            const navLinks = document.querySelectorAll(".nav-links a");
+
+            navLinks.forEach(link => {
+                if (link.getAttribute("href").includes(currentPage)) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

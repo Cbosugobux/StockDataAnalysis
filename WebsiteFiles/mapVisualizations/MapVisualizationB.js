@@ -1,99 +1,46 @@
-// Creating the map object
-let myMapB = L.map("mapB", {
-    center: [25, 10],
-    zoom: 1.5
-});
+// ✅ Ensure script loads
+console.log("✅ MapVisualizationB.js Loaded");
 
-// Adding the tile layer
+// Initialize Leaflet Map
+var mapB = L.map('mapB').setView([37.8, -96], 4); // USA centered
+
+// Add OpenStreetMap Tile Layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(myMapB);
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(mapB);
 
-// Load the GeoJSON file
-d3.json('mapVisualizations/companyLocations.geojson').then(function (data) {
+// Load Company Locations
+fetch('companyLocations.geojson')
+    .then(response => response.json())
+    .then(companyData => {
+        console.log("✅ Company Locations Loaded", companyData);
 
-    function dataColor(BidenChange) {
-        return BidenChange < 0 ? "tomato" : "limegreen";
-    }
+        // Load Biden Stock Data
+        fetch('../../Data/Biden.json') // Corrected path
+            .then(response => response.json())
+            .then(stockData => {
+                console.log("✅ Biden Stock Data Loaded", stockData);
 
-    function readiusSize(BidenChange) {
-        return BidenChange === 0 ? 1 : Math.abs(BidenChange) * 5;
-    }
+                // Match Stock Data to Locations
+                companyData.features.forEach(feature => {
+                    let companyName = feature.properties.name;
+                    let stockInfo = stockData[companyName]; // Match stock performance
 
-    function dataStyle(feature) {
-        return {
-            opacity: 0.5,
-            fillOpacity: 0.5,
-            fillColor: dataColor(feature.properties.BidenChange),
-            radius: readiusSize(feature.properties.BidenChange),
-            weight: 0.5,
-            stroke: true
-        };
-    }
+                    if (stockInfo) {
+                        let change = stockInfo.change; // % Change
+                        let color = change > 0 ? "green" : "red"; // Color based on performance
 
-    // Function to show hover popup
-    function highlightFeature(event) {
-        let layer = event.target;
-
-        // Increase opacity on hover
-        layer.setStyle({
-            opacity: .75,
-            fillOpacity: .75
-        });
-
-        // Extract details from the GeoJSON properties
-        let company = layer.feature.properties.Company;
-        let ticker = layer.feature.properties.Ticker;
-        let stockChange = layer.feature.properties.BidenChange;
-        let city = layer.feature.properties.City || "Unknown";
-        let state = layer.feature.properties.State || "Unknown";
-        let country = layer.feature.properties.Country || "Unknown";
-
-        // Define popup content
-        let popupContent = `
-            <center>
-                <h2>${company} - ${ticker}</h2>
-                <hr>
-                <h3>Stock Change: ${stockChange}</h3>
-                <p><b>Location:</b> ${city}, ${state}, ${country}</p>
-            </center>`;
-
-        // Open popup with the new content
-        layer.bindPopup(popupContent).openPopup();
-    }
-
-    // Function to reset style and close popup on mouseout
-    function resetHighlight(event) {
-        let layer = event.target;
-        layer.setStyle({
-            opacity: 0.5,
-            fillOpacity: 0.5
-        });
-        layer.closePopup();
-    }
-
-    // Add the GeoJSON data
-    L.geoJson(data, {
-        pointToLayer: function (feature, latLng) {
-            return L.circleMarker(latLng);
-        },
-        style: dataStyle,
-        onEachFeature: function (feature, layer) {
-            // Default popup when clicking a marker
-            let defaultPopup = `
-                <center>
-                    <h2>${feature.properties.Company} - ${feature.properties.Ticker}</h2>
-                    <hr>
-                    <h3>Stock Change: ${feature.properties.BidenChange}</h3>
-                </center>`;
-
-            layer.bindPopup(defaultPopup);
-
-            // Add mouseover event to show the hover popup with City, State, and Country
-            layer.on({
-                mouseover: highlightFeature,
-                mouseout: resetHighlight
-            });
-        }
-    }).addTo(myMapB);
-});
+                        // Create Marker
+                        L.circleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
+                            color: color,
+                            radius: Math.abs(change) / 2, // Scale marker size
+                            fillOpacity: 0.7
+                        })
+                        .bindPopup(`<strong>${companyName}</strong><br>Stock Change: ${change}%`)
+                        .addTo(mapB);
+                    }
+                });
+            })
+            .catch(error => console.error("❌ Error loading Biden Stock Data:", error));
+    })
+    .catch(error => console.error("❌ Error loading GeoJSON Data:", error));
