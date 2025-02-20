@@ -5,27 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Performance by Location: Trump vs. Biden</title>
 
-    <!-- Leaflet CSS -->
+    <!-- Leaflet CSS (Required for Maps) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin="" />
 
-    <!-- D3 Library -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="cssFiles/styles.css">
-    <link rel="stylesheet" type="text/css" href="cssFiles/leafletStyle.css">
+    <link rel="stylesheet" href="cssFiles/styles.css">  <!-- Unified stylesheet -->
 
-    <!-- Leaflet JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""></script>
-
+    <!-- Load External Scripts with Defer -->
+    <script src="https://d3js.org/d3.v7.min.js" defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 </head>
 
 <body>
 
+    <!-- ✅ Header & Navigation (Consistent with Findings Page) -->
     <header>
         <nav>
             <div class="logo">
@@ -35,85 +30,40 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="stockData.html">Stock Data</a></li>
-                <li><a href="MapVisualization.html">Stock Performance by Location</a></li>
+                <li><a href="MapVisualization.html" class="active">Stock Performance by Location</a></li>
                 <li><a href="diversityData/diversityData.html">Diversity Information</a></li>
                 <li><a href="findings.html">Findings</a></li>
             </ul>
         </nav>
     </header>
 
-    <center>
-        <h1>Top 5 Stock Change by Company Location <br> Trump's 1st Year vs Biden's 1st Year</h1>
+    <!-- ✅ Main Content -->
+    <main>
 
-        <div class="text1">Biden 2021</div>
-        <div id="mapB" class="map"></div><br>
+        <!-- Title -->
+        <section class="findings-container">
+            <h1>Stock Performance by Location</h1>
+            <p>Explore the top 5 stock changes by company location under each presidency.</p>
+        </section>
 
-        <div class="text1">Trump 2017</div>
-        <div id="mapT" class="map"></div><br><br>
-    </center>
-
-    <!-- Biden JSON Load -->
-    <script>
-        d3.json('Data/Biden.json')
-        .then(function(data) {
-            console.log("Biden JSON Data:", data);
-        })
-        .catch(function(error) {
-            console.error('Error loading the JSON file:', error);
-        });
-    </script>
-
-    <!-- Map Visualization Scripts -->
-    <script src="mapVisualizations/MapVisualizationB.js" defer></script>             
-    <script src="mapVisualizations/MapVisualizationT.js" defer></script>
-
-    <hr>
-    
-        </main>
-    
-        <footer>
-          <p>&copy; 2025 Team One. All rights reserved.</p>
-        </footer>
-    
-        <!-- JavaScript for Toggle -->
-        <script>
-          document.addEventListener("DOMContentLoaded", function() {
-              document.getElementById('domestic-stocks').classList.add('active');
-              document.getElementById('domestic-btn').classList.add('active');
-          
-              function showStocks(type) {
-                  document.getElementById('domestic-stocks').classList.remove('active');
-                  document.getElementById('foreign-stocks').classList.remove('active');
-                  document.getElementById('domestic-btn').classList.remove('active');
-                  document.getElementById('foreign-btn').classList.remove('active');
-          
-                  document.getElementById(type + '-stocks').classList.add('active');
-                  document.getElementById(type + '-btn').classList.add('active');
-              }
-          
-              document.getElementById('domestic-btn').addEventListener("click", function() {
-                  showStocks('domestic');
-              });
-          
-              document.getElementById('foreign-btn').addEventListener("click", function() {
-                  showStocks('foreign');
-              });
-          });
-          </script>
-    
-        <!-- Active Page Highlight Script -->
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-              const currentPage = window.location.pathname.split("/").pop();
-              const navLinks = document.querySelectorAll(".nav-links a");
+        <!-- Map Sections -->
+        <section class="findings-container">
+            <h2>📊 Trump’s 1st Year (2017)</h2>
+            <div id="mapT" class="map"></div>
+        </section> 
         
-              navLinks.forEach(link => {
-                  if (link.getAttribute("href") === currentPage) {
-                      link.classList.add("active");
-                  }
-              });
-          });
-      </script>
-          
-</body>
-</html>
+        <section class="findings-container">
+            <h2>📊 Biden’s 1st Year (2021)</h2>
+            <div id="mapB" class="map"></div>
+        </section>
+
+    </main>
+
+    <!-- ✅ Footer -->
+    <footer>
+        <p>&copy; 2025 Team One. All rights reserved.</p>
+    </footer>
+
+    <!-- ✅ JavaScript Files -->
+    <script src="MapVisualizationB.js" defer></script>             
+   

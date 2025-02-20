@@ -478,3 +478,22 @@ select {
 .chartjs-legend-item {
   color: white !important;
 }
+
+/* Ensure Maps Have Consistent Styling */
+#mapT, #mapB {
+  width: 100%;  /* Make it responsive */
+  max-width: 900px; /* Ensures it doesn't stretch too wide */
+  height: 400px; /* Adjust for visibility */
+  background-color: #2C2C2C; /* Darker background */
+  border: 2px solid white;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+/* Fix Text Readability */
+.text1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #FFA726; /* Bright orange for better contrast */
+  text-align: center;
+}
