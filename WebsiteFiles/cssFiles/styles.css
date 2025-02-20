@@ -305,12 +305,13 @@
       5. Footer (Optional)
    -------------------------------------------------- */
    footer {
-     background-color: #333;
-     padding: 20px;
-     text-align: center;
-     font-size: 14px;
-     color: #ffffff;
-   }
+    background-color: #0D1B53; /* Dark blue, matching navbar */
+    border-top: 3px solid #FFD700; /* Yellow top border */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    }
    
    
    /* =======================
