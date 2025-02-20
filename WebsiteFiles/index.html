@@ -14,7 +14,7 @@
                 <img src="static/Proj3Logo.png" alt="Project Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="stockData.html">Stock Data</a></li>
                 <li><a href="MapVisualization.html">Stock Performance by Location</a></li>
@@ -22,44 +22,40 @@
                 <li><a href="findings.html">Findings</a></li>
             </ul>
         </nav>
-
-        <!-- TradingView Stock Ticker Widget Below Header -->
-        <div class="tradingview-container">
-            <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-                {
-                  "symbols": [
-                    { "proName": "NASDAQ:AAPL", "title": "Apple" },
-                    { "proName": "NASDAQ:NVDA", "title": "Nvidia" },
-                    { "proName": "NASDAQ:MSFT", "title": "Microsoft" },
-                    { "proName": "NASDAQ:AMZN", "title": "Amazon" },
-                    { "proName": "NASDAQ:GOOGL", "title": "Google" },
-                    { "proName": "NASDAQ:META", "title": "Meta (Facebook)" },
-                    { "proName": "NASDAQ:TSLA", "title": "Tesla" },
-                    { "proName": "NASDAQ:AVGO", "title": "Broadcom" },
-                    { "proName": "NYSE:ORCL", "title": "Oracle" },
-                    { "proName": "KRX:005930", "title": "Samsung (South Korea)" },
-                    { "proName": "EURONEXT:ASML", "title": "ASML (Netherlands)" },
-                    { "proName": "HKEX:0700", "title": "Tencent (China)" },
-                    { "proName": "NYSE:BABA", "title": "Alibaba (China)" },
-                    { "proName": "TSE:6758", "title": "Sony (Japan)" },
-                    { "proName": "FWB:SAP", "title": "SAP (Germany)" },
-                    { "proName": "TSE:9984", "title": "SoftBank (Japan)" },
-                    { "proName": "NASDAQ:BIDU", "title": "Baidu (China)" },
-                    { "proName": "NYSE:TSM", "title": "Taiwan Semiconductor" },
-                    { "proName": "NYSE:INFY", "title": "Infosys (India)" }
-                  ],
-                  "colorTheme": "dark",
-                  "isTransparent": false,
-                  "displayMode": "adaptive",
-                  "locale": "en"
-                }
-                </script>
-            </div>
-        </div>
     </header>
-    
+
+    <!-- ✅ Move the TradingView Widget BELOW the header -->
+    <div class="tradingview-container">
+        <div class="tradingview-widget-container">
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+              "symbols": [
+                { "proName": "NASDAQ:AAPL", "title": "Apple" },
+                { "proName": "NASDAQ:NVDA", "title": "Nvidia" },
+                { "proName": "NASDAQ:MSFT", "title": "Microsoft" },
+                { "proName": "NASDAQ:AMZN", "title": "Amazon" },
+                { "proName": "NASDAQ:GOOGL", "title": "Google" },
+                { "proName": "NASDAQ:META", "title": "Meta (Facebook)" },
+                { "proName": "NASDAQ:TSLA", "title": "Tesla" },
+                { "proName": "NASDAQ:AVGO", "title": "Broadcom" },
+                { "proName": "NYSE:ORCL", "title": "Oracle" },
+                { "proName": "EURONEXT:ASML", "title": "ASML (Netherlands)" },
+                { "proName": "HKEX:0700", "title": "Tencent (China)" },
+                { "proName": "NYSE:BABA", "title": "Alibaba (China)" },
+                { "proName": "FWB:SAP", "title": "SAP (Germany)" },
+                { "proName": "NASDAQ:BIDU", "title": "Baidu (China)" },
+                { "proName": "NYSE:TSM", "title": "Taiwan Semiconductor" },
+                { "proName": "NYSE:INFY", "title": "Infosys (India)" }
+              ],
+              "colorTheme": "dark",
+              "isTransparent": false,
+              "displayMode": "adaptive",
+              "locale": "en"
+            }
+            </script>
+        </div>
+    </div>
+
     <section id="home" class="hero">
         <h1>First-Year Stock Market Performance: Comparing Trump and Biden</h1>
         <div class="image-container">
