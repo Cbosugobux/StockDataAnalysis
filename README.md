@@ -11,6 +11,8 @@ Pandas, Matplotlib, Numpy, YFinance, Flask, Dash
 
 
 **Instructions on how to use and interact with the project:**  
+To launch the website open index.html   
+
 
 **Ethical considerations made in the project:**  
 For this project, we addressed the potential for bias by analyzing stock changes for two recent Presidents. One Republican, one Democrat. We also broadened our stock analysis to analyze tech companies in the US as well as abroad. We added another element of scope by considering diversity in tech to consider how it affects changes in the stock market.  
