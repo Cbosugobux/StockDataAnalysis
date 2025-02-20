@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;700&display=swap');
+
+/* --------------------------------------------------
+   1. Global Reset and Base Styles
+-------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1A237E;  /* Dark blue background */
+  color: #ffffff;             /* White text */
+  font-family: "IBM Plex Sans", sans-serif;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------
+   2. Navigation (Header)
+-------------------------------------------------- */
+/* 
+   Using Flexbox with justify-content: space-between 
+   so the logo is on the left and nav links on the right.
+*/
+
+header {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #0D1B53; /* Same dark blue */
+  border-bottom: 3px solid #FFCC00; /* Yellow underline */
+  height: 120px;
+  padding: 12px 20px; /* Same padding as homepage */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo img {
+  width: 100px; /* Adjust as desired */
+  height: auto;
+}
+
+/* Nav links styling */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Space between links */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #FFD700; /* Brighter Gold for strong contrast */
+}
+
+/* --------------------------------------------------
+   3. Main About Content
+-------------------------------------------------- */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.about-container h1 {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.about-container h2 {
+  font-size: 32px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.about-container p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* --------------------------------------------------
+   4. Stock Lists (Side-by-Side)
+-------------------------------------------------- */
+.stock-lists {
+  display: flex;
+  justify-content: center; /* Centers the list containers horizontally */
+  gap: 50px;              /* Space between the two lists */
+  margin-top: 30px;       /* Adds spacing above the lists */
+}
+
+.list-container {
+  flex: none;             /* Prevents them from stretching */
+  width: 300px;           /* Fixed width for each list */
+}
+
+.list-container h2 {
+  text-align: center;     /* Center the heading above each list */
+}
+
+ol {
+  padding: 0;
+  list-style-position: inside;
+}
+
+/* --------------------------------------------------
+   5. Footer (Optional)
+-------------------------------------------------- */
+footer {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+}

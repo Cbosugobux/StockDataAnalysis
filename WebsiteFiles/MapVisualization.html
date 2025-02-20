@@ -9,9 +9,27 @@
 
         <!-- D3 Library -->
         <script src="https://d3js.org/d3.v7.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="maps.css">
-        <link rel="stylesheet" type="text/css" href="leafletStyle.css">
+        <link rel="stylesheet" type="text/css" href="cssFiles/styles.css">
+        <link rel="stylesheet" type="text/css" href="cssFiles/leafletStyle.css">
 
+    <body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="static/Proj3Logo.png">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="stockData.html">Stock Data</a></li>
+                <li><a href="MapVisualization.html">Stock Performance by Location</a></li>
+                <li><a href="/diversityData.html">Diversity Info</a></li>
+                <li><a href="findings.html">Findings</a></li>
+            </ul>
+        </nav>
+    </header>
+        
+        
         <!--Biden.json-->
         <script>
             d3.json('./Data/Biden.json')
@@ -35,8 +53,8 @@
             <div class="text1">Trump 2017 </div>
             <div id="mapT" class = "map"></div><br><br>
             
-            <script src ="MapVisualizationB.js" defer></script>             
-            <script src ="MapVisualizationT.js" defer></script>
+            <script src ="mapVisualizations/MapVisualizationB.js" defer></script>             
+            <script src ="mapVisualizations/MapVisualizationT.js" defer></script>
             <!-- Leaflet JavaScript code -->
             
             <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"

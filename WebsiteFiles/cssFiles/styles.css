@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;700&display=swap');
+
+
+/* ------------------ Global Reset / Base ------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #1A237E;  /* Dark blue background */
+    color: #ffffff;             /* White text */
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+  
+  /* ------------------ Header & Nav ------------------ */
+  header {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    background-color: #0D1B53; /* Same dark blue */
+    border-bottom: 3px solid #FFCC00; /* Yellow underline */
+    height: 120px;
+    padding: 12px 20px; /* Same padding as homepage */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo img {
+    width: 100px; /* Adjust as desired */
+    height: auto;
+  }
+
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    /* margin: 0 15px; -- optional if using gap above */
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #FFD700; /* Brighter Gold for strong contrast */
+  }
+  
+  /* ------------------ Hero Section ------------------ */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* ------------------ Images ------------------ */
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .image-container div {
+    text-align: center;
+  }
+  
+  .image-container img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 2px solid black;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .image-container img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* ------------------ News Box ------------------ */
+  #news {
+    position: absolute; /* or fixed if desired */
+    right: 20px;
+    top: 100px;
+    width: 350px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  
+  .news-article {
+    margin-bottom: 15px;
+  }
+  
+  .news-article h3 {
+    font-size: 16px;
+  }
+  
+  .news-article a {
+    color: #ffcc00;
+    text-decoration: none;
+  }
+  
+  .news-article a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ------------------ Headings & Lists ------------------ */
+  h2 {
+    font-weight: bold;
+    font-family: "IBM Plex Sans", sans-serif; /* Or keep Times if you prefer */
+    text-align: center;
+  }
+  
+  .stock-lists {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+  }
+  
+  .list-container {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  ol {
+    padding: 0;
+    list-style-position: inside;
+  }
+  
+  /* ------------------ Team One Section ------------------ */
+  #team-one {
+    text-align: left;
+    padding-left: 50px;
+    width: fit-content;
+  }
+  
+  #team-one h2 {
+    margin-bottom: 10px;
+  }
+  
+  #team-one ol {
+    padding-left: 20px;
+    list-style-position: outside;
+  }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1A237E;  /* Dark blue background */
+  color: #ffffff;             /* White text */
+  font-family: "IBM Plex Sans", sans-serif;
+  line-height: 1.6;
+}
+
+
+header {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #0D1B53; /* Same dark blue */
+  border-bottom: 3px solid #FFCC00; /* Yellow underline */
+  height: 120px;
+  padding: 12px 20px; /* Same padding as homepage */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo img {
+  width: 100px; /* Adjust as desired */
+  height: auto;
+}
+
+/* Nav links styling */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Space between links */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #FFD700; /* Brighter Gold for strong contrast */
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.about-container h1 {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.about-container h2 {
+  font-size: 32px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.about-container p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.stock-lists {
+  display: flex;
+  justify-content: center; /* Centers the list containers horizontally */
+  gap: 50px;              /* Space between the two lists */
+  margin-top: 30px;       /* Adds spacing above the lists */
+}
+
+.list-container {
+  flex: none;             /* Prevents them from stretching */
+  width: 300px;           /* Fixed width for each list */
+}
+
+.list-container h2 {
+  text-align: center;     /* Center the heading above each list */
+}
+
+ol {
+  padding: 0;
+  list-style-position: inside;
+}
+
+
+footer {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* Maps define size for html main*/
+#mapT {
+  width: 900px;
+  height: 250px;
+  background-color: #686666;
+  border: solid black;
+      border-radius: 10px;
+  padding: 25px;
+  
+ }
+#mapB {
+  width: 900px;
+  height: 250px;
+  background-color: #868686;
+  border: solid black;
+      border-radius: 10px;
+
+  padding: 25px;
+  
+  }
+
+.h1{
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.body {
+  padding: 100px;
+  margin: 100px;
+  background-color: #1A237E;  /* Dark blue background */
+  color: #ffffff;             /* White text */
+  font-family: "Times New Roman", Times, serif;
+}
+
+.text1 {
+  font-size: 24px;
+  color: tomato;
+  font-weight: bold;
+}
+
