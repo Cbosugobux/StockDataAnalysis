@@ -149,7 +149,6 @@
 
     // Function to update the chart for a given year
     function updateChartForYear(selectedYear) {
-      // Example: Assume you fetch new data based on the selected year and companies
       const newData = fetchData(selectedYear);
 
       // Build datasets with fixed colors
@@ -163,7 +162,7 @@
         };
       });
 
-      // Update your chart (assume diversityChart is your Chart instance)
+      // Update your chart
       diversityChart.data.datasets = datasets;
       diversityChart.update();
     }
@@ -189,8 +188,22 @@
       options: {
         responsive: true,
         scales: {
+          x: {
+            ticks: {
+              color: 'white',
+              font: {
+                weight: 'bold'
+              }
+            }
+          },
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            ticks: {
+              color: 'white',
+              font: {
+                weight: 'bold'
+              }
+            }
           }
         }
       }
