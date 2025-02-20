@@ -1,85 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diversity Data</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diversity Data</title>
 
-    <!-- Link to Main Stylesheet -->
-    <link rel="stylesheet" href="../cssFiles/styles.css">
-    
-    <!-- Chart.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="../cssFiles/styles.css">
 
-    <!-- Link to JavaScript File -->
-    <script src="diversityData.js" defer></script>
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- External JavaScript -->
+  <script src="diversityData.js" defer></script>
+
+  <style>
+    /* Example styling for better layout and readability */
+
+    /* Ensure label & select elements are stacked vertically */
+    .filter-group {
+      display: flex;
+      flex-direction: column; /* Puts label on top, select below */
+      margin-bottom: 1rem;
+    }
+
+    /* Container for all filters - can be styled as a row or column */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem; /* Space between filter groups */
+      align-items: flex-start; /* Align everything at the top */
+      margin-bottom: 2rem; /* Space between filters and chart */
+    }
+
+    /* Chart container with controlled width for better readability */
+    .chart-container {
+      width: 80%;          /* Adjust percentage as needed */
+      max-width: 800px;    /* Maximum width for the chart */
+      margin: 0 auto;      /* Center the chart on the page */
+    }
+
+    /* Allow the canvas to resize properly */
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="../static/Proj3Logo.png" alt="Project Logo">
-            </div>
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../stockData.html">Stock Data</a></li>
-                <li><a href="../MapVisualization.html">Stock Performance by Location</a></li>
-                <li><a href="diversityData.html" class="active">Diversity Information</a></li>
-                <li><a href="../findings.html">Findings</a></li>
-            </ul>
-        </nav>  
-    </header>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="../static/Proj3Logo.png" alt="Project Logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../stockData.html">Stock Data</a></li>
+        <li><a href="../MapVisualization.html">Stock Performance by Location</a></li>
+        <li><a href="diversityData.html" class="active">Diversity Information</a></li>
+        <li><a href="../findings.html">Findings</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <script>
-        // ✅ Highlight Active Page in Navigation Bar
-        document.addEventListener("DOMContentLoaded", function () {
-            const currentPage = window.location.pathname.split("/").pop();
-            document.querySelectorAll(".nav-links a").forEach(link => {
-                if (link.getAttribute("href").includes(currentPage)) {
-                    link.classList.add("active");
-                }
-            });
-        });
-    </script>
+  <script>
+    // Highlight Active Page in Navigation Bar
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        if (link.getAttribute("href").includes(currentPage)) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 
-    <main>
-        <h1>Diversity Data Visualization</h1>
+  <main>
+    <h1>Diversity Data Visualization</h1>
 
-        <!-- Multi-Select Company Filter -->
+    <!-- Filters Section -->
+    <div class="filters">
+      <div class="filter-group">
         <label for="company-filter">Select Companies:</label>
         <select id="company-filter" multiple>
-            <option value="Apple">Apple</option>
-            <option value="Nvidia">Nvidia</option>
-            <option value="Microsoft">Microsoft</option>
-            <option value="Amazon">Amazon</option>
-            <option value="Google (Alphabet)">Google (Alphabet)</option>
+          <option value="Apple">Apple</option>
+          <option value="Nvidia">Nvidia</option>
+          <option value="Microsoft">Microsoft</option>
+          <option value="Amazon">Amazon</option>
+          <option value="Google (Alphabet)">Google (Alphabet)</option>
         </select>
+      </div>
 
-        <!-- Multi-Select Diversity Category Filter -->
+      <div class="filter-group">
         <label for="category-filter">Select Diversity Categories:</label>
         <select id="category-filter" multiple>
-            <option value="gender_female" selected>Female (%)</option>
-            <option value="race_asian" selected>Asian (%)</option>
-            <option value="race_black" selected>Black (%)</option>
-            <option value="race_hispanic" selected>Hispanic (%)</option>
+          <option value="gender_female" selected>Female (%)</option>
+          <option value="race_asian" selected>Asian (%)</option>
+          <option value="race_black" selected>Black (%)</option>
+          <option value="race_hispanic" selected>Hispanic (%)</option>
         </select>
+      </div>
 
-        <!-- Year Selection -->
+      <div class="filter-group">
         <label for="year-filter">Select Year:</label>
         <select id="year-filter">
-            <option value="2017">2017</option>
-            <option value="2021">2021</option>
+          <option value="2017">2017</option>
+          <option value="2021">2021</option>
         </select>
+      </div>
+    </div>
 
-        <!-- Bar Chart for Diversity Data -->
-        <div class="chart-container">
-            <canvas id="diversityChart"></canvas>
-        </div>
-    </main>
+    <!-- Bar Chart -->
+    <div class="chart-container">
+      <canvas id="diversityChart"></canvas>
+    </div>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Team One. All rights reserved.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Team One. All rights reserved.</p>
+  </footer>
 </body>
 </html>
