@@ -1,6 +1,6 @@
-console.log("✅ JavaScript is running!");
+console.log("JavaScript is running!");
 
-// ✅ Embedded JSON Data (Apple, Nvidia, Microsoft, Amazon, Google, 2017 & 2021)
+// Embedded JSON Data (Apple, Nvidia, Microsoft, Amazon, Google, 2017 & 2021)
 const diversityData = [
     { "company": "Apple", "year": 2017, "gender_female": 32, "gender_male": 68, "race_white": 54, "race_asian": 21, "race_hispanic": 13, "race_black": 9 },
     { "company": "Apple", "year": 2021, "gender_female": 34.8, "gender_male": 65.2, "race_white": 43.8, "race_asian": 27.9, "race_hispanic": 14.8, "race_black": 9.4 },
@@ -14,46 +14,51 @@ const diversityData = [
     { "company": "Google (Alphabet)", "year": 2021, "gender_female": 32.5, "gender_male": 67.5, "race_white": 50.4, "race_asian": 42.3, "race_hispanic": 6.4, "race_black": 4.4 }
 ];
 
-// ✅ Function to Generate Chart with Toggle Functionality
-function generateChart() {
-    const ctx = document.getElementById("diversityChart").getContext("2d");
+// Function to Get Selected Values from Multi-Select Dropdowns
+function getSelectedValues(selectElement) {
+    return Array.from(selectElement.selectedOptions).map(option => option.value);
+}
 
-    const categories = ["gender_female", "gender_male", "race_white", "race_asian", "race_hispanic", "race_black"];
-    const categoryColors = {
-        "gender_female": "#D81B60",
-        "gender_male": "#1E88E5",
-        "race_white": "#BDBDBD",
-        "race_asian": "#03A9F4",
-        "race_hispanic": "#FF5722",
-        "race_black": "#4CAF50"
-    };
+// Function to Update Chart When Selections Change
+function updateChart() {
+    const selectedCompanies = getSelectedValues(document.getElementById("company-filter"));
+    const selectedCategories = getSelectedValues(document.getElementById("category-filter"));
+    const selectedYear = document.getElementById("year-filter").value;
 
-    const uniqueCompanies = [...new Set(diversityData.map(entry => entry.company))];
+    const filteredData = diversityData.filter(entry =>
+        (selectedCompanies.length === 0 || selectedCompanies.includes(entry.company)) &&
+        entry.year == selectedYear
+    );
 
-    // ✅ Prepare Dataset for Each Category
-    const datasets = categories.map(category => ({
-        label: category.replace("_", " ").toUpperCase() + " (%)",
-        data: diversityData.map(entry => entry[category]),
-        backgroundColor: categoryColors[category],
-        hidden: false // Ensure all datasets are visible initially
+    if (filteredData.length === 0) {
+        console.error("❌ No data available for selected filters.");
+        return;
+    }
+
+    // Prepare Chart Data
+    const labels = filteredData.map(entry => `${entry.company} (${entry.year})`);
+    const datasets = selectedCategories.map(category => ({
+        label: category.replace("_", " ") + " (%)",
+        data: filteredData.map(entry => entry[category] ?? 0),
+        backgroundColor: `hsl(${Math.random() * 360}, 70%, 60%)`
     }));
 
-    const labels = diversityData.map(entry => `${entry.company} (${entry.year})`);
-
-    // ✅ Destroy Existing Chart (if any)
+    // Clear Existing Chart
     if (window.diversityChartInstance) {
         window.diversityChartInstance.destroy();
     }
 
-    // ✅ Create New Chart
+    // Create New Chart
+    const ctx = document.getElementById("diversityChart").getContext("2d");
     window.diversityChartInstance = new Chart(ctx, {
         type: "bar",
         data: { labels, datasets },
-        options: {
+        options: { 
             responsive: true,
             plugins: { 
                 legend: {
                     display: true,
+                    labels: { color: "white" },
                     onClick: function (e, legendItem, legend) {
                         const index = legendItem.datasetIndex;
                         legend.chart.toggleDatasetVisibility(index);
@@ -61,14 +66,19 @@ function generateChart() {
                 }
             },
             scales: { 
-                y: { beginAtZero: true },
-                x: { stacked: false }
+                y: { beginAtZero: true, ticks: { color: "white" } },
+                x: { ticks: { color: "white" } }
             }
         }
     });
 
-    console.log("✅ Chart generated with category toggles.");
+    console.log("Chart updated:", selectedCompanies, selectedCategories);
 }
 
-// ✅ Load Chart on Page Load
-document.addEventListener("DOMContentLoaded", generateChart);
+// Attach Event Listeners to Dropdowns
+document.querySelectorAll("#company-filter, #category-filter, #year-filter").forEach(select => {
+    select.addEventListener("change", updateChart);
+});
+
+// Load Chart on Page Load
+document.addEventListener("DOMContentLoaded", updateChart);

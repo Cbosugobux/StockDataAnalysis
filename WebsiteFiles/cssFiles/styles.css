@@ -460,3 +460,21 @@
   width: 100%; /* Ensures it spans full width */
   max-width: 1200px;
 }
+
+/* Ensure Dropdown Background is White with Black Text */
+select {
+  background-color: white; /* White background */
+  color: black; /* Black text */
+  border: 1px solid black;
+  padding: 5px;
+}
+
+/* Ensure Chart Labels and Legend Text is White */
+.chart-container canvas {
+  color: white !important;
+}
+
+/* Improve Legend Readability */
+.chartjs-legend-item {
+  color: white !important;
+}
