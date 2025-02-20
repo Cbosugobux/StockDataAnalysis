@@ -497,3 +497,18 @@ select {
   color: #FFA726; /* Bright orange for better contrast */
   text-align: center;
 }
+
+/* ✅ Apply styles ONLY to MapVisualization.html */
+#stock-performance-page .findings-container {
+  text-align: center;
+  padding: 20px 10px; /* Reduced padding */
+  margin-bottom: -10px; /* Reduce vertical spacing */
+}
+
+#stock-performance-page .map {
+  width: 100%;
+  max-width: 900px;
+  height: 400px;
+  margin: 10px auto; /* Reduce spacing between maps */
+}
+
