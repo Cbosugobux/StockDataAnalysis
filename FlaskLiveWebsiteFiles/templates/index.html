@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First-Year Stock Market Performance: Comparing Trump and Biden</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='aboutStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='maps.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='leafletStyle.css') }}">
+</head>
+    
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Proj3Logo.png">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="stockData.html">Stock Data</a></li>
+                <li><a href="MapVisualization.html">Stock Performance by Location</a></li>
+                <li><a href="diversityinfo.html">Diversity Info</a></li>
+                <li><a href="findings.html">Findings</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero">
+        <h1>1st Year Stock Market Performance: Trump v. Biden</h1>
+        <div class="image-container">
+            <div>
+                <img src="static/TrumpOfficialPortrait.jpeg" alt="President_Trump"><br>
+                <h2>Donald J. Trump</h2>
+            </div>
+            <div>
+                <img src="static/BidenOfficialPortrait.png" alt="President_Biden">
+                <h2>Joseph R. Biden</h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="chart-container">
+        <section id="team-one">
+            <h2>Team One:</h2>
+            <ol>
+                <li>Magdalene Alva</li>
+                <li>Sara Bendahmane</li>
+                <li>Chris Bushelman</li>
+                <li>Chorrkin Chin</li>
+                <li>Patrick Feeney</li>
+                <li>Kidest Getahun</li>
+                <li>Rob Jowaisas</li>
+                <li>Amy Millimen-Tola</li>
+                <li>Maya Morad</li>
+                <li>Alma Ontiveros</li>
+                <li>Matthew Shea</li>
+                <li>Xavier Walsh</li>
+                
+            </ol>
+        </section>
+
+        <br>
+     <!-- TradingView Stock Ticker Widget -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        { "proName": "NASDAQ:AAPL", "title": "Apple" },
+        { "proName": "NASDAQ:NVDA", "title": "Nvidia" },
+        { "proName": "NASDAQ:MSFT", "title": "Microsoft" },
+        { "proName": "NASDAQ:AMZN", "title": "Amazon" },
+        { "proName": "NASDAQ:GOOGL", "title": "Google" },
+        { "proName": "NASDAQ:META", "title": "Meta (Facebook)" },
+        { "proName": "NASDAQ:TSLA", "title": "Tesla" },
+        { "proName": "NASDAQ:AVGO", "title": "Broadcom" },
+        { "proName": "NYSE:ORCL", "title": "Oracle" },
+  
+        { "proName": "KRX:005930", "title": "Samsung (South Korea)" },
+        { "proName": "EURONEXT:ASML", "title": "ASML (Netherlands)" },
+        { "proName": "HKEX:0700", "title": "Tencent (China)" },
+        { "proName": "NYSE:BABA", "title": "Alibaba (China)" },
+        { "proName": "TSE:6758", "title": "Sony (Japan)" },
+        { "proName": "FWB:SAP", "title": "SAP (Germany)" },
+        { "proName": "TSE:9984", "title": "SoftBank (Japan)" },
+        { "proName": "NASDAQ:BIDU", "title": "Baidu (China)" },
+        { "proName": "NYSE:TSM", "title": "Taiwan Semiconductor" },
+        { "proName": "NYSE:INFY", "title": "Infosys (India)" }
+      ],
+      "colorTheme": "dark",
+      "isTransparent": false,
+      "displayMode": "adaptive",
+      "locale": "en"
+    }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+  
+   <br>
+    
+    
+    <footer>
+        <p>&copy; 2025 Team_One. All rights reserved.</p>
+    </footer>
+   <!-- JavaScript -->
+<script src="{{ url_for('static', filename='MapVisualizationB.js') }}"></script>
+<script src="{{ url_for('static', filename='MapVisualizationT.js') }}"></script>
+</body>
+</html>

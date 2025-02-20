@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Page - Stock Market Performance</title>
+    <link rel="stylesheet" href="aboutStyle.css" />
+  </head>
+  <body>
+    <header>
+        <nav>
+          <div class="logo">
+            <img src="Proj3Logo.png" alt="Logo">
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="stockData.html">Stock Data</a></li>
+            <li><a href="stockPerformanceByLocation.html">Stock Performance by Location</a></li>
+            <li><a href="diversityinfo.html">Diversity Info</a></li>
+            <li><a href="findings.html">Findings</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+    </header>
+    <main class="about-container">
+      <h1>Our Project</h1>
+      <p>
+        <strong>Purpose:</strong> This analysis examines the performance of the top five tech sector stocks 
+        during the first year of both President Trump’s and President Biden’s terms. Stock price trends 
+        (both domestic and foreign), geographic distribution, and diversity changes from 2017 to 2021 
+        are explored through visualizations created for this study.
+      </p>
+      <p>
+        <strong>Methods:</strong> The Python module <code>yfinance</code> was used to 
+        import stock market data for selected stocks, allowing for the creation of 
+        visualizations that highlight differences in market performance.
+      </p>
+      <p>
+        Additionally, diversity distribution within these companies during this period 
+        was analyzed in the context of prevailing economic conditions.
+      </p>
+      <div class="stock-lists">
+        <div class="list-container">
+          <h2>Domestic Stocks</h2>
+          <ol>
+            <li>Apple</li>
+            <li>Nvidia</li>
+            <li>Microsoft</li>
+            <li>Amazon</li>
+            <li>Google (Alphabet)</li>
+          </ol>
+        </div>
+        <div class="list-container">
+          <h2>Foreign Stocks</h2>
+          <ol>
+            <li>Samsung (South Korea)- To be removed</li>
+            <li>ASML (Netherlands)</li>
+            <li>Tencent Holdings (China)</li>
+            <li>Alibaba (China)</li>
+            <li>Sony (Japan)</li>
+          </ol>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2025 Our Company Name. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
