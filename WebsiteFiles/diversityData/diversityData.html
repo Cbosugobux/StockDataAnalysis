@@ -1,58 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diversity Data</title>
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="../cssFiles/styles.css">
+  <link rel="stylesheet" href="../cssFiles/styles.css" />
 
   <!-- Chart.js Library -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- External JavaScript -->
-  <script src="diversityData.js" defer></script>
-
   <style>
-    /* Example styling for better layout and readability */
-
-    /* Ensure label & select elements are stacked vertically */
+    /* Filter styling */
     .filter-group {
       display: flex;
-      flex-direction: column; /* Puts label on top, select below */
+      flex-direction: column;
       margin-bottom: 1rem;
     }
-
-    /* Container for all filters - can be styled as a row or column */
     .filters {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem; /* Space between filter groups */
-      align-items: flex-start; /* Align everything at the top */
-      margin-bottom: 2rem; /* Space between filters and chart */
+      gap: 1.5rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
     }
-
-    /* Chart container with controlled width for better readability */
+    /* Chart container sizing */
     .chart-container {
-      width: 80%;          /* Adjust percentage as needed */
-      max-width: 800px;    /* Maximum width for the chart */
-      margin: 0 auto;      /* Center the chart on the page */
+      width: 80%;
+      max-width: 800px;
+      margin: 0 auto;
     }
-
-    /* Allow the canvas to resize properly */
     canvas {
       max-width: 100%;
       height: auto;
     }
   </style>
 </head>
-
 <body>
   <header>
     <nav>
       <div class="logo">
-        <img src="../static/Proj3Logo.png" alt="Project Logo">
+        <img src="../static/Proj3Logo.png" alt="Project Logo" />
       </div>
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
@@ -99,7 +88,7 @@
           <option value="gender_female" selected>Female (%)</option>
           <option value="race_asian" selected>Asian (%)</option>
           <option value="race_black" selected>Black (%)</option>
-          <option value="race_hispanic" selected>Hispanic (%)</option>
+          <option value="race_hispanic" selected>Latino (%)</option>
         </select>
       </div>
 
@@ -112,7 +101,7 @@
       </div>
     </div>
 
-    <!-- Bar Chart -->
+    <!-- Chart Section -->
     <div class="chart-container">
       <canvas id="diversityChart"></canvas>
     </div>
@@ -121,5 +110,97 @@
   <footer>
     <p>&copy; 2025 Team One. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Define fixed colors for each category
+    const categoryColors = {
+      gender_female: 'lightcoral',
+      race_asian: 'lightblue',
+      race_black: 'violet',
+      race_hispanic: 'gold' // Using 'race_hispanic' to represent Latino %
+    };
+
+    // Example labels for your datasets (you can customize these as needed)
+    const categoryLabels = {
+      gender_female: 'Female (%)',
+      race_asian: 'Asian (%)',
+      race_black: 'Black (%)',
+      race_hispanic: 'Latino (%)'
+    };
+
+    // Dummy fetchData function to simulate fetching data based on the year
+    function fetchData(year) {
+      if (year === "2017") {
+        return {
+          gender_female: [20, 25, 30, 15, 22],
+          race_asian: [10, 12, 15, 9, 11],
+          race_black: [5, 6, 7, 5, 6],
+          race_hispanic: [8, 9, 10, 7, 8]
+        };
+      } else if (year === "2021") {
+        return {
+          gender_female: [22, 27, 32, 18, 24],
+          race_asian: [12, 14, 18, 10, 13],
+          race_black: [6, 7, 8, 6, 7],
+          race_hispanic: [9, 10, 11, 8, 9]
+        };
+      }
+    }
+
+    // Function to update the chart for a given year
+    function updateChartForYear(selectedYear) {
+      // Example: Assume you fetch new data based on the selected year and companies
+      const newData = fetchData(selectedYear);
+
+      // Build datasets with fixed colors
+      const datasets = Object.keys(newData).map(category => {
+        return {
+          label: categoryLabels[category],
+          data: newData[category],
+          backgroundColor: categoryColors[category],
+          borderColor: categoryColors[category],
+          borderWidth: 1
+        };
+      });
+
+      // Update your chart (assume diversityChart is your Chart instance)
+      diversityChart.data.datasets = datasets;
+      diversityChart.update();
+    }
+
+    // Chart initialization
+    const ctx = document.getElementById('diversityChart').getContext('2d');
+    const initialYear = "2017";
+    const initialData = fetchData(initialYear);
+    const chartData = {
+      labels: ["Apple", "Nvidia", "Microsoft", "Amazon", "Google (Alphabet)"],
+      datasets: Object.keys(initialData).map(category => ({
+        label: categoryLabels[category],
+        data: initialData[category],
+        backgroundColor: categoryColors[category],
+        borderColor: categoryColors[category],
+        borderWidth: 1
+      }))
+    };
+
+    const diversityChart = new Chart(ctx, {
+      type: 'bar',
+      data: chartData,
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Event listener for year filter change
+    document.getElementById('year-filter').addEventListener('change', function () {
+      const selectedYear = this.value;
+      updateChartForYear(selectedYear);
+    });
+  </script>
 </body>
 </html>
