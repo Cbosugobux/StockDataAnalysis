@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Findings</title>
     <link rel="stylesheet" href="cssFiles/styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js Library -->
 </head>
 <body>
     <header>
@@ -25,85 +24,55 @@
     </header>
 
     <main>
-        <!-- Conclusions Section -->
-        <section id="conclusions">
-            <h1>Conclusions</h1>
-            <br>
-            <p>After analyzing stock market performance under different administrations, we observed the following key takeaways:</p>
-            <ul>
-                <li>1. Conclusion 1.</li>
-                <li>2. Conclusion 2.</li>
-                <li>3. Conclusion 3.</li>
-            </ul>
-        </section>
-
-        <br><br>
-
-        <!-- Interactive Chart Section -->
-        <section id="chart-section">
-            <h1>Stock Market Performance Comparison</h1>
-            <canvas id="stockChart"></canvas> <!-- Chart Canvas -->
-        </section>
+        <!-- Sleek Findings Section -->
+        <section class="findings-container">
+            <h1>Key Takeaways</h1>
+            <div class="findings-grid">
         
-        <br><br>
-
-        <!-- Fun Facts Section -->
-        <section id="fun-facts">
-            <h1>Fun Facts</h1>
-            <br>
-            <ol>
-                <li>Fun Fact 1.</li>
-                <li>Fun Fact 2.</li>
-                <li>Fun Fact 3.</li>
-                <li>Fun Fact 4.</li>
-                <li>Fun Fact 5.</li>
-            </ol>
+                <div class="finding-card">
+                    <h2>📈 Stock Market Growth</h2>
+                    <p>Tech stocks saw a <strong>record boom</strong> from 2017 to 2021, with some increasing by over <strong>700%</strong>.</p>
+                </div>
+        
+                <div class="finding-card">
+                    <h2>🏆 Top Performers</h2>
+                    <p><strong>Nvidia (+700%)</strong> and <strong>Microsoft (+357%)</strong> were the biggest winners during this period.</p>
+                </div>
+        
+                <div class="finding-card">
+                    <h2>📉 Economic Policies</h2>
+                    <p>Stock trends shifted based on <strong>tax cuts, tariffs, and interest rate changes</strong> across administrations.</p>
+                </div>
+        
+                <div class="finding-card">
+                    <h2>🌍 Global Tech Growth</h2>
+                    <p>Foreign companies like <strong>ASML (Netherlands) & Tencent (China)</strong> showed strong global competition.</p>
+                </div>
+        
+                <div class="finding-card">
+                    <h2>💰 Investor Behavior</h2>
+                    <p>Growth in sectors like <strong>AI, cloud computing, and semiconductors</strong> drove market enthusiasm.</p>
+                </div>
+        
+            </div>
         </section>
     </main>
 
     <footer>
-        <br>
-        <p>&copy; 2025 Team_One. All rights reserved.</p>
+        <p>&copy; 2025 Team One. All rights reserved.</p>
     </footer>
 
-    <!-- Chart.js Script -->
+    <!-- Active Page Highlight Script -->
     <script>
-        const ctx = document.getElementById('stockChart').getContext('2d');
-        
-        const stockChart = new Chart(ctx, {
-            type: 'line', // Line chart for stock trends
-            data: {
-                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [
-                    {
-                        label: "Trump's 1st Year (S&P 500)",
-                        data: [2200, 2250, 2300, 2350, 2400, 2420, 2500, 2550, 2600, 2700, 2750, 2800],
-                        borderColor: "red",
-                        backgroundColor: "rgba(255, 0, 0, 0.2)",
-                        borderWidth: 2,
-                        fill: true
-                    },
-                    {
-                        label: "Biden's 1st Year (S&P 500)",
-                        data: [3750, 3800, 3850, 3900, 4000, 4050, 4100, 4200, 4300, 4350, 4400, 4500],
-                        borderColor: "blue",
-                        backgroundColor: "rgba(0, 0, 255, 0.2)",
-                        borderWidth: 2,
-                        fill: true
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { position: 'top' },
-                    tooltip: { enabled: true }
-                },
-                scales: {
-                    y: { beginAtZero: false },
-                    x: { title: { display: true, text: 'Months' } }
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentPage = window.location.pathname.split("/").pop();
+            const navLinks = document.querySelectorAll(".nav-links a");
+      
+            navLinks.forEach(link => {
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("active");
                 }
-            }
+            });
         });
     </script>
 </body>

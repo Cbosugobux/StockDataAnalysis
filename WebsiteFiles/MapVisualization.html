@@ -68,7 +68,52 @@
     <script src="mapVisualizations/MapVisualizationT.js" defer></script>
 
     <hr>
-    <em>Copyright &copy; 2025 Team 1 Project 3</em>
-
+    
+        </main>
+    
+        <footer>
+          <p>&copy; 2025 Team One. All rights reserved.</p>
+        </footer>
+    
+        <!-- JavaScript for Toggle -->
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+              document.getElementById('domestic-stocks').classList.add('active');
+              document.getElementById('domestic-btn').classList.add('active');
+          
+              function showStocks(type) {
+                  document.getElementById('domestic-stocks').classList.remove('active');
+                  document.getElementById('foreign-stocks').classList.remove('active');
+                  document.getElementById('domestic-btn').classList.remove('active');
+                  document.getElementById('foreign-btn').classList.remove('active');
+          
+                  document.getElementById(type + '-stocks').classList.add('active');
+                  document.getElementById(type + '-btn').classList.add('active');
+              }
+          
+              document.getElementById('domestic-btn').addEventListener("click", function() {
+                  showStocks('domestic');
+              });
+          
+              document.getElementById('foreign-btn').addEventListener("click", function() {
+                  showStocks('foreign');
+              });
+          });
+          </script>
+    
+        <!-- Active Page Highlight Script -->
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+              const currentPage = window.location.pathname.split("/").pop();
+              const navLinks = document.querySelectorAll(".nav-links a");
+        
+              navLinks.forEach(link => {
+                  if (link.getAttribute("href") === currentPage) {
+                      link.classList.add("active");
+                  }
+              });
+          });
+      </script>
+          
 </body>
 </html>
