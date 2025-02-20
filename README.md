@@ -20,7 +20,7 @@ We have provided our resources for the data here and confirm that it has not bee
 https://informationisbeautiful.net/visualizations/diversity-in-tech/  
 https://finance.yahoo.com  
 
-References for any code used that is not your own
+**References for any code used that is not your own**  
 Code for historical timeline: https://timeline.knightlab.com/
 
 
