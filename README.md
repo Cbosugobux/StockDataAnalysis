@@ -17,7 +17,7 @@ For this project, we addressed the potential for bias by analyzing stock changes
 We have provided our resources for the data here and confirm that it has not been altered. All analyses represent the data as it is. 
 
 **References for the data source(s)**  
-https://informationisbeautiful.net/visualizations/diversity-in-tech/
+https://informationisbeautiful.net/visualizations/diversity-in-tech/  
 https://finance.yahoo.com  
 
 References for any code used that is not your own
