@@ -442,3 +442,18 @@
     transform: scale(1.03);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
+
+/* TradingView Ticker Styling */
+.tradingview-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #0D1B53; /* Matches the header */
+  padding: 5px 0;
+  border-bottom: 3px solid #FFCC00; /* Matches the yellow outline */
+}
+
+.tradingview-widget-container {
+  width: 80%;
+  max-width: 1200px;
+}

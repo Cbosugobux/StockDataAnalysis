@@ -11,10 +11,10 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="static/Proj3Logo.png">
+                <img src="static/Proj3Logo.png" alt="Project Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="stockData.html">Stock Data</a></li>
                 <li><a href="MapVisualization.html">Stock Performance by Location</a></li>
@@ -22,6 +22,42 @@
                 <li><a href="findings.html">Findings</a></li>
             </ul>
         </nav>
+
+        <!-- TradingView Stock Ticker Widget Below Header -->
+        <div class="tradingview-container">
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                {
+                  "symbols": [
+                    { "proName": "NASDAQ:AAPL", "title": "Apple" },
+                    { "proName": "NASDAQ:NVDA", "title": "Nvidia" },
+                    { "proName": "NASDAQ:MSFT", "title": "Microsoft" },
+                    { "proName": "NASDAQ:AMZN", "title": "Amazon" },
+                    { "proName": "NASDAQ:GOOGL", "title": "Google" },
+                    { "proName": "NASDAQ:META", "title": "Meta (Facebook)" },
+                    { "proName": "NASDAQ:TSLA", "title": "Tesla" },
+                    { "proName": "NASDAQ:AVGO", "title": "Broadcom" },
+                    { "proName": "NYSE:ORCL", "title": "Oracle" },
+                    { "proName": "KRX:005930", "title": "Samsung (South Korea)" },
+                    { "proName": "EURONEXT:ASML", "title": "ASML (Netherlands)" },
+                    { "proName": "HKEX:0700", "title": "Tencent (China)" },
+                    { "proName": "NYSE:BABA", "title": "Alibaba (China)" },
+                    { "proName": "TSE:6758", "title": "Sony (Japan)" },
+                    { "proName": "FWB:SAP", "title": "SAP (Germany)" },
+                    { "proName": "TSE:9984", "title": "SoftBank (Japan)" },
+                    { "proName": "NASDAQ:BIDU", "title": "Baidu (China)" },
+                    { "proName": "NYSE:TSM", "title": "Taiwan Semiconductor" },
+                    { "proName": "NYSE:INFY", "title": "Infosys (India)" }
+                  ],
+                  "colorTheme": "dark",
+                  "isTransparent": false,
+                  "displayMode": "adaptive",
+                  "locale": "en"
+                }
+                </script>
+            </div>
+        </div>
     </header>
     
     <section id="home" class="hero">
@@ -38,12 +74,11 @@
         </div>
     </section>
         
-    <section id = "timeline">
-        <div class = "timeline-container">
+    <section id="timeline">
+        <div class="timeline-container">
             <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1PcivyI36CCdzKXg4ss-Td3ITt2yVbN2LDuNAZCRnk_Q&font=Default&lang=en&initial_zoom=2&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
         </div>
     </section>
-
 
     <section class="team-section">
         <h1>Meet Our Team of Analysts</h1>
@@ -62,93 +97,10 @@
             <div class="team-card"><h2>Xavier Walsh</h2></div>
         </div>
     </section>
-    
-
-        <br>
-     <!-- TradingView Stock Ticker Widget -->
-<div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {
-      "symbols": [
-        { "proName": "NASDAQ:AAPL", "title": "Apple" },
-        { "proName": "NASDAQ:NVDA", "title": "Nvidia" },
-        { "proName": "NASDAQ:MSFT", "title": "Microsoft" },
-        { "proName": "NASDAQ:AMZN", "title": "Amazon" },
-        { "proName": "NASDAQ:GOOGL", "title": "Google" },
-        { "proName": "NASDAQ:META", "title": "Meta (Facebook)" },
-        { "proName": "NASDAQ:TSLA", "title": "Tesla" },
-        { "proName": "NASDAQ:AVGO", "title": "Broadcom" },
-        { "proName": "NYSE:ORCL", "title": "Oracle" },
-  
-        { "proName": "KRX:005930", "title": "Samsung (South Korea)" },
-        { "proName": "EURONEXT:ASML", "title": "ASML (Netherlands)" },
-        { "proName": "HKEX:0700", "title": "Tencent (China)" },
-        { "proName": "NYSE:BABA", "title": "Alibaba (China)" },
-        { "proName": "TSE:6758", "title": "Sony (Japan)" },
-        { "proName": "FWB:SAP", "title": "SAP (Germany)" },
-        { "proName": "TSE:9984", "title": "SoftBank (Japan)" },
-        { "proName": "NASDAQ:BIDU", "title": "Baidu (China)" },
-        { "proName": "NYSE:TSM", "title": "Taiwan Semiconductor" },
-        { "proName": "NYSE:INFY", "title": "Infosys (India)" }
-      ],
-      "colorTheme": "dark",
-      "isTransparent": false,
-      "displayMode": "adaptive",
-      "locale": "en"
-    }
-    </script>
-  </div>
-  <!-- TradingView Widget END -->
-  
-   <br>
-
-    </main>
 
     <footer>
       <p>&copy; 2025 Team One. All rights reserved.</p>
     </footer>
-
-    <!-- JavaScript for Toggle -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          document.getElementById('domestic-stocks').classList.add('active');
-          document.getElementById('domestic-btn').classList.add('active');
-      
-          function showStocks(type) {
-              document.getElementById('domestic-stocks').classList.remove('active');
-              document.getElementById('foreign-stocks').classList.remove('active');
-              document.getElementById('domestic-btn').classList.remove('active');
-              document.getElementById('foreign-btn').classList.remove('active');
-      
-              document.getElementById(type + '-stocks').classList.add('active');
-              document.getElementById(type + '-btn').classList.add('active');
-          }
-      
-          document.getElementById('domestic-btn').addEventListener("click", function() {
-              showStocks('domestic');
-          });
-      
-          document.getElementById('foreign-btn').addEventListener("click", function() {
-              showStocks('foreign');
-          });
-      });
-      </script>
-
-    <!-- Active Page Highlight Script -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          const currentPage = window.location.pathname.split("/").pop();
-          const navLinks = document.querySelectorAll(".nav-links a");
-    
-          navLinks.forEach(link => {
-              if (link.getAttribute("href") === currentPage) {
-                  link.classList.add("active");
-              }
-          });
-      });
-  </script>
-      
 
 </body>
 </html>
