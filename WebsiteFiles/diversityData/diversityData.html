@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diversity Data</title>
+
+    <!-- Link to Main Stylesheet -->
+    <link rel="stylesheet" href="../cssFiles/styles.css">
+    
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Link to JavaScript File -->
+    <script src="diversityData.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../static/Proj3Logo.png" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="diversityData.html" class="active">Diversity Info</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Diversity Data Visualization</h1>
+
+        <!-- Multi-Select Company Filter -->
+        <label for="company-filter">Select Companies:</label>
+        <select id="company-filter" multiple>
+            <option value="Apple">Apple</option>
+            <option value="Nvidia">Nvidia</option>
+            <option value="Microsoft">Microsoft</option>
+            <option value="Amazon">Amazon</option>
+            <option value="Google (Alphabet)">Google (Alphabet)</option>
+        </select>
+
+        <!-- Multi-Select Diversity Category Filter -->
+        <label for="category-filter">Select Diversity Categories:</label>
+        <select id="category-filter" multiple>
+            <option value="gender_female" selected>Female (%)</option>
+            <option value="gender_male" selected>Male (%)</option>
+            <option value="race_white" selected>White (%)</option>
+            <option value="race_asian" selected>Asian (%)</option>
+            <option value="race_black" selected>Black (%)</option>
+            <option value="race_hispanic" selected>Hispanic (%)</option>
+        </select>
+
+<!-- Chart Container -->
+<div class="chart-container">
+    <canvas id="diversityChart"></canvas>
+</div>
+
+
+        <!-- Year Selection -->
+        <label for="year-filter">Select Year:</label>
+        <select id="year-filter">
+            <option value="2017">2017</option>
+            <option value="2021">2021</option>
+        </select>
+
+        <!-- Bar Chart for Diversity Data -->
+        <div class="chart-container">
+            <canvas id="diversityChart"></canvas>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Team One. All rights reserved.</p>
+    </footer>
+</body>
+</html>
