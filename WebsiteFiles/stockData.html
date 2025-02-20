@@ -2,10 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Employee Diversity Visualization</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Data</title>
+    <link rel="stylesheet" href="cssFiles/styles.css"> <!-- Reference to the merged CSS -->
 </head>
-<body>
-    <!-- Insert the interactive plot -->
-    {{ plot | safe }}
+
+<body id="stock-data-page"> <!-- Unique ID for stock data page styles -->
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="static/Proj3Logo.png" alt="Project Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="stockData.html">Stock Data</a></li>
+                <li><a href="MapVisualization.html">Stock Performance by Location</a></li>
+                <li><a href="diversityinfo.html">Diversity Info</a></li>
+                <li><a href="findings.html">Findings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="image-gallery">
+        <h1>Stock Market Data Insights</h1>
+
+        <!-- First Two Images Side by Side -->
+        <div class="image-row">
+            <div class="image-box">
+                <img src="static/staticCharts/intl_finance_perf_2017.png" alt="Stock Market Chart">
+                <p>Stock Market Performance Under President Trump - International</p>
+            </div>
+            <div class="image-box">
+                <img src="static/staticCharts/intl_finance_perf_2021.png" alt="Financial Data">
+                <p>Stock Market Performance Under President Biden - International </p>
+            </div>
+        </div>
+
+        <!-- Third Image on a New Line, Centered -->
+        <div class="image-box centered">
+            <img src="static/staticCharts/bubblechart.png" alt="Bubble Chart">
+            <p>Bubble Chart - Add</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Team_One. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
