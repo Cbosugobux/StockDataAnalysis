@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>First-Year Stock Market Performance: Comparing Trump and Biden</title>
   <link rel="stylesheet" href="cssFiles/styles.css">
+  
   <style>
     /* Modal container - hidden by default */
     .modal {
@@ -27,12 +28,10 @@
       border: 1px solid #888;
       width: 80%;
       max-width: 500px;
+      text-align: center;
     }
 
     /* Modal text styling */
-    .modal-content {
-      text-align: center;
-    }
     .modal-content p,
     .modal-content h2,
     .modal-content strong,
@@ -56,6 +55,42 @@
 </head>
 
 <body>
+    <audio id="ssb" src="audio/jimi-hendrix-star-spangled-banner.mp3"></audio>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const audioEl = document.getElementById('ssb');
+        audioEl.volume = 0.5; // set volume to 50%
+    
+        const modal = document.getElementById("myModal");
+        const closeBtn = document.getElementsByClassName("close")[0];
+    
+        // Display the modal on page load
+        modal.style.display = "block";
+    
+        // When the close button is clicked:
+        closeBtn.onclick = function() {
+          modal.style.display = "none";
+          // Trigger playback when the popup is closed
+          audioEl.play().catch(error => {
+            console.error("Playback was prevented:", error);
+          });
+        };
+    
+        // Optional: Close the modal when clicking outside of the modal content
+        window.onclick = function(event) {
+          if (event.target === modal) {
+            modal.style.display = "none";
+            audioEl.play().catch(error => {
+              console.error("Playback was prevented:", error);
+            });
+          }
+        };
+      });
+    </script>
+    
+  
+
   <header>
     <nav>
       <div class="logo">
