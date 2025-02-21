@@ -1,28 +1,50 @@
-**Overview**   
-This project aims to analyze stock market data to see how the top 5 US and International tech stocks performed in Trump and Biden's first year in office, 2017 and 2021, respectively.  
+**Stock Market Analysis: Tech Stocks Under Trump & Biden**
 
-This data was analyzed using:  
-Jupyter Notebook  
-MongoDB  
-  
+**Overview**
 
-Libraries include: 
-Pandas, Matplotlib, Numpy, YFinance, Flask, Dash
+This project analyzes the performance of the top five U.S. and international tech stocks during the first year of the Trump and Biden administrations—2017 and 2021, respectively. The goal is to compare stock market trends under two different presidencies and examine how external factors, including political and economic shifts, influenced tech stocks.
 
+**Tech Stack & Tools**
+This analysis was conducted using:
+- Jupyter Notebook for data exploration and visualization
+- MongoDB for data storage and retrieval
 
-**Instructions on how to use and interact with the project:**  
-To launch the website open index.html   
+**Libraries Used**
+- Pandas
+- Matplotlib
+- NumPy
+- YFinance
+- Flask
+- Dash
 
+**How to Use the Project**
 
-**Ethical considerations made in the project:**  
-For this project, we addressed the potential for bias by analyzing stock changes for two recent Presidents. One Republican, one Democrat. We also broadened our stock analysis to analyze tech companies in the US as well as abroad. We added another element of scope by considering diversity in tech to consider how it affects changes in the stock market.  
-We have provided our resources for the data here and confirm that it has not been altered. All analyses represent the data as it is. 
+**Access the Website**
+You can explore the project results directly via GitHub Pages:
+👉 Project Website
 
-**References for the data source(s)**  
-https://informationisbeautiful.net/visualizations/diversity-in-tech/  
-https://finance.yahoo.com  
+**Local Usage**
+- Clone the repository.
+- Open index.html in a web browser to launch the website.
+- Run Jupyter Notebook to analyze and modify the data.
 
-**References for any code used that is not your own**  
-Code for historical timeline: https://timeline.knightlab.com/
+**AI Assistance in Development**
+Throughout this project, AI tools were utilized to enhance coding efficiency and problem-solving:
+        - Xpert Learning Assistant: Assisted with structuring and optimizing data processing logic.
+        - ChatGPT: Provided support in debugging, code optimization, and improving documentation clarity.
 
+**Ethical Considerations**
 
+To minimize bias, we:
+- Examined stock market performance under both a Republican and a Democratic president.
+- Included both U.S. and international tech companies for a broader perspective.
+- Incorporated diversity in tech as an additional factor to explore its impact on stock performance.
+
+We ensured transparency by sourcing publicly available data and keeping analyses true to the original datasets without modifications.
+
+**Data Sources**
+- Diversity in Tech Visualization: Information Is Beautiful
+- Stock Market Data: Yahoo Finance
+
+**External Code References**
+- Historical Timeline Visualization: Knight Lab Timeline
