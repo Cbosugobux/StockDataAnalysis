@@ -9,7 +9,6 @@ This analysis was conducted using:
 - Jupyter Notebook for data exploration and visualization
 - MongoDB for data storage and retrieval
 
-<<<<<<< HEAD
 **Libraries Used**
 - Pandas
 - Matplotlib
@@ -17,7 +16,7 @@ This analysis was conducted using:
 - YFinance
 - Flask
 - Dash
-=======
+
 **Instructions on how to use and interact with the project:**  
 To launch the website open index.html  
 The Homepage has a historical timeline  
@@ -31,7 +30,7 @@ Our findings page contains our conclusions as well as some fun facts.
 
 **Access the Website**
 You can explore the project results directly via GitHub Pages:
-👉 Project Website
+👉 https://mayamorad.github.io/Project3/WebsiteFiles/index.html
 
 **Local Usage**
 - Clone the repository.
