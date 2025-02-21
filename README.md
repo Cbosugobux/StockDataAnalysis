@@ -29,8 +29,7 @@ This analysis was conducted using:
 **How to Use the Project**
 
 **Access the Website**
-You can explore the project results directly via GitHub Pages:
-👉 https://mayamorad.github.io/Project3/WebsiteFiles/index.html
+You can explore the project results directly via GitHub Pages: https://mayamorad.github.io/Project3/WebsiteFiles/index.html
 
 **Local Usage**
 - Clone the repository.
