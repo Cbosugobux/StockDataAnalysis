@@ -8,6 +8,7 @@ This project analyzes the performance of the top five U.S. and international tec
 This analysis was conducted using:
 - Jupyter Notebook for data exploration and visualization
 - MongoDB for data storage and retrieval
+- Javascript
 
 **Libraries Used**
 - Pandas
