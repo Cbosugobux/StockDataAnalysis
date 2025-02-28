@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diversity Data</title>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="../cssFiles/styles.css" />
+
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    /* Filter styling */
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    /* Chart container sizing */
+    .chart-container {
+      width: 80%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="../static/Proj3Logo.png" alt="Project Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../stockData.html">Stock Data</a></li>
+        <li><a href="../MapVisualization.html">Stock Performance by Location</a></li>
+        <li><a href="diversityData.html" class="active">Diversity Information</a></li>
+        <li><a href="../findings.html">Findings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    // Highlight Active Page in Navigation Bar
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        if (link.getAttribute("href").includes(currentPage)) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+  <main>
+    <h1>Diversity Data Visualization</h1>
+
+    <!-- Filters Section -->
+    <div class="filters">
+      <div class="filter-group">
+        <label for="company-filter">Select Companies:</label>
+        <select id="company-filter" multiple>
+          <option value="Apple">Apple</option>
+          <option value="Nvidia">Nvidia</option>
+          <option value="Microsoft">Microsoft</option>
+          <option value="Amazon">Amazon</option>
+          <option value="Google (Alphabet)">Google (Alphabet)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="category-filter">Select Diversity Categories:</label>
+        <select id="category-filter" multiple>
+          <option value="gender_female" selected>Female (%)</option>
+          <option value="race_asian" selected>Asian (%)</option>
+          <option value="race_black" selected>Black (%)</option>
+          <option value="race_hispanic" selected>Latino (%)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="year-filter">Select Year:</label>
+        <select id="year-filter">
+          <option value="2017">2017</option>
+          <option value="2021">2021</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="chart-container">
+      <canvas id="diversityChart"></canvas>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Team One. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Define fixed colors for each category
+    const categoryColors = {
+      gender_female: 'lightcoral',
+      race_asian: 'lightblue',
+      race_black: 'violet',
+      race_hispanic: 'gold' // Using 'race_hispanic' to represent Latino %
+    };
+
+    // Example labels for your datasets (you can customize these as needed)
+    const categoryLabels = {
+      gender_female: 'Female (%)',
+      race_asian: 'Asian (%)',
+      race_black: 'Black (%)',
+      race_hispanic: 'Latino (%)'
+    };
+
+    // Dummy fetchData function to simulate fetching data based on the year
+    function fetchData(year) {
+      if (year === "2017") {
+        return {
+          gender_female: [32, 17, 26, 39, 31],
+          race_asian: [21, 45, 31, 13, 35],
+          race_black: [9, 1, 6, 13, 4],
+          race_hispanic: [13, 3, 6, 13, 4]
+        };
+      } else if (year === "2021") {
+        return {
+          gender_female: [35, 19, 30, 44, 33],
+          race_asian: [28, 48, 36, 14, 42],
+          race_black: [9, 3, 6, 29, 4],
+          race_hispanic: [15, 3, 7, 24, 6]
+        };
+      }
+    }
+
+    // Function to update the chart for a given year
+    function updateChartForYear(selectedYear) {
+      const newData = fetchData(selectedYear);
+
+      // Build datasets with fixed colors
+      const datasets = Object.keys(newData).map(category => {
+        return {
+          label: categoryLabels[category],
+          data: newData[category],
+          backgroundColor: categoryColors[category],
+          borderColor: categoryColors[category],
+          borderWidth: 1
+        };
+      });
+
+      // Update your chart
+      diversityChart.data.datasets = datasets;
+      diversityChart.update();
+    }
+
+    // Chart initialization
+    const ctx = document.getElementById('diversityChart').getContext('2d');
+    const initialYear = "2017";
+    const initialData = fetchData(initialYear);
+    const chartData = {
+      labels: ["Apple", "Nvidia", "Microsoft", "Amazon", "Google (Alphabet)"],
+      datasets: Object.keys(initialData).map(category => ({
+        label: categoryLabels[category],
+        data: initialData[category],
+        backgroundColor: categoryColors[category],
+        borderColor: categoryColors[category],
+        borderWidth: 1
+      }))
+    };
+
+    const diversityChart = new Chart(ctx, {
+      type: 'bar',
+      data: chartData,
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            ticks: {
+              color: 'white',
+              font: { weight: 'bold' }
+            }
+          },
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: 'white',
+              font: { weight: 'bold' }
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white',
+              font: { weight: 'bold' }
+            }
+          }
+        }
+      }
+    });
+
+    // Event listener for year filter change
+    document.getElementById('year-filter').addEventListener('change', function () {
+      const selectedYear = this.value;
+      updateChartForYear(selectedYear);
+    });
+  </script>
+</body>
+</html>
